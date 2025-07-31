@@ -29,4 +29,4 @@ uvloop
 yt-dlp
 youtube-search
 youtube-search-python
-git+https://github.com/KurimuzonAkuma/pyrogram@dev
+git+https://github.com/pyrogram/pyrogram@master
