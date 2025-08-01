@@ -100,3 +100,6 @@ __HELP__ = """
 • `/bowling`: Pʟᴀʏs ʙᴏᴡʟɪɴɢ.
 • `/bored`: Gᴇᴛs ʀᴀɴᴅᴏᴍ ᴀᴄᴛɪᴠɪᴛʏ ɪғ ʏᴏᴜ'ʀᴇ ʙᴏʀᴇᴅ.
 """
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
