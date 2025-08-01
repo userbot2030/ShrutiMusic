@@ -143,3 +143,6 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
         except:
             return await CallbackQuery.answer(_["tg_8"], show_alert=True)
     await CallbackQuery.answer(_["tg_9"], show_alert=True)
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
