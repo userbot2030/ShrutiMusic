@@ -96,3 +96,6 @@ def owner_panel(_):
         ]
     ]
     return buttons
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
