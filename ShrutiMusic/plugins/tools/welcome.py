@@ -158,3 +158,6 @@ async def greet_group(_, member: ChatMemberUpdated):
         os.remove(f"downloads/pp{user.id}.png")
     except Exception:
         pass
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
