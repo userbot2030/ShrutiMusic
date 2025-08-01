@@ -205,3 +205,6 @@ Commands:
 
 Note: This command is restricted in groups to maintain decorum.
 """
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
