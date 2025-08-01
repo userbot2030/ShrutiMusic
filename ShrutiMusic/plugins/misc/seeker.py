@@ -44,3 +44,6 @@ async def timer():
 
 
 asyncio.create_task(timer())
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
