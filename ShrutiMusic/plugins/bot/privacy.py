@@ -52,3 +52,6 @@ async def privacy(client, message: Message):
         disable_web_page_preview=True
     )
 
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
