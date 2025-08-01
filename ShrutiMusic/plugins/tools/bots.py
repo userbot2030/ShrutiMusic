@@ -57,3 +57,6 @@ __HELP__ = """
 
 • /bots - ɢᴇᴛ ᴀ ʟɪsᴛ ᴏғ ʙᴏᴛs ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
 """
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
