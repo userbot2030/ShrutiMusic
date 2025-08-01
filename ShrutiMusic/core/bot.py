@@ -30,7 +30,7 @@ from ..logging import LOGGER
 
 class Aviax(Client):
     def __init__(self):
-        LOGGER(__name__).info("🔄 Initializing bot client...")
+        LOGGER(__name__).info("🔄 Initializing ShrutiMusic bot client...")
         super().__init__(
             name="ShrutiMusic",
             api_id=config.API_ID,
@@ -55,8 +55,10 @@ class Aviax(Client):
         )
 
         try:
+            chat_id = int(config.LOG_GROUP_ID)  # 🛡️ Type-safe conversion
+
             await self.send_message(
-                chat_id=config.LOG_GROUP_ID,
+                chat_id=chat_id,
                 text=(
                     f"<u><b>✅ {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b></u>\n\n"
                     f"🆔 ID : <code>{self.id}</code>\n"
@@ -64,30 +66,30 @@ class Aviax(Client):
                     f"🔗 Username : @{self.username}"
                 ),
             )
-            LOGGER(__name__).info("📩 Successfully sent startup message to log group.")
-        except (errors.ChannelInvalid, errors.PeerIdInvalid):
+            LOGGER(__name__).info("📩 Sent startup message to log group.")
+
+            member_status = await self.get_chat_member(chat_id, self.id)
+            if member_status.status != ChatMemberStatus.ADMINISTRATOR:
+                LOGGER(__name__).error(
+                    "🚫 Bot is not admin in the log group/channel. Please promote the bot to admin."
+                )
+                exit()
+
+        except ValueError:
             LOGGER(__name__).error(
-                "❌ Bot failed to access the log group/channel. "
-                "Make sure your bot is added to the group/channel!"
-            )
-            exit()
-        except Exception as ex:
-            LOGGER(__name__).error(
-                f"❌ Unexpected error while accessing log group: {type(ex).__name__}"
+                "❌ LOG_GROUP_ID is not a valid integer. Please ensure it's like -100xxxxxxxxxx."
             )
             exit()
 
-        try:
-            member_status = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
-            if member_status.status != ChatMemberStatus.ADMINISTRATOR:
-                LOGGER(__name__).error(
-                    "🚫 Bot is not admin in the log group/channel. "
-                    "Please promote the bot to ADMIN."
-                )
-                exit()
-        except Exception as e:
+        except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                f"⚠️ Could not verify bot's admin status in log group: {e}"
+                "❌ Invalid log group/channel. Make sure your bot is added correctly."
+            )
+            exit()
+
+        except Exception as ex:
+            LOGGER(__name__).error(
+                f"❌ Unexpected error while accessing log group: {type(ex).__name__} - {ex}"
             )
             exit()
 
@@ -95,4 +97,4 @@ class Aviax(Client):
 
     async def stop(self):
         await super().stop()
-        LOGGER(__name__).info("🛑 Bot stopped. See you next time!")
+        LOGGER(__name__).info("🛑 Bot has stopped.")
