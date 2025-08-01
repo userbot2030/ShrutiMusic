@@ -59,3 +59,6 @@ class SoundAPI:
             "filepath": xyz,
         }
         return track_details, xyz
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
