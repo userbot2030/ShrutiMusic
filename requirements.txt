@@ -23,10 +23,10 @@ pyyaml
 requests
 speedtest-cli
 spotipy
-tgcrypto
 unidecode
 uvloop
 yt-dlp
 youtube-search
 youtube-search-python
 pyrogram==2.0.106
+tgcrypto==1.2.5
