@@ -29,3 +29,6 @@ from .inline import *
 from .pastebin import *
 from .sys import *
 from .error import *
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
