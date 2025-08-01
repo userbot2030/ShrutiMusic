@@ -95,3 +95,6 @@ def aq_markup(_, chat_id):
         ],
     ]
     return buttons
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
