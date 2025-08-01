@@ -533,3 +533,9 @@ async def delete_app_info(user_id: int, app_name: str):
     return False
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
+
+# ===========================================
+# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
+# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
+# 📢 Telegram Channel : https://t.me/ShrutiBots
+# ===========================================
