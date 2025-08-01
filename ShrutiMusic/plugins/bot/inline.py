@@ -88,3 +88,6 @@ async def inline_query_handler(client, query):
             return await client.answer_inline_query(query.id, results=answers)
         except:
             return
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
