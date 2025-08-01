@@ -107,3 +107,6 @@ async def auto_end():
             logging.info(e)
 
 asyncio.create_task(auto_end())
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
