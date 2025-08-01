@@ -80,3 +80,6 @@ __HELP__ = """
 """
 
 __MODULE__ = "Tʀᴜᴛʜ"
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
