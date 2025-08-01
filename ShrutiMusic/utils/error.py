@@ -79,3 +79,6 @@ def capture_err(func):
             raise err
 
     return capture
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
