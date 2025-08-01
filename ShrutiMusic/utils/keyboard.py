@@ -42,3 +42,6 @@ def keyboard(buttons_list, row_width: int = 2):
 
 def ikb(data: dict, row_width: int = 2):
     return keyboard(data.items(), row_width=row_width)
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
