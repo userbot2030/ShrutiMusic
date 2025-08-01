@@ -1,3 +1,4 @@
+gTTS
 aiofiles
 aiohttp
 asyncio
