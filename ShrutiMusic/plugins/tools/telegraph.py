@@ -117,3 +117,6 @@ __HELP__ = """
 """
 
 __MODULE__ = "ᴛᴇʟᴇɢʀᴀᴘʜ"
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
