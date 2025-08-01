@@ -13,7 +13,7 @@ class Aviax(Client):
     def __init__(self):
         LOGGER(__name__).info("🔄 Initializing ShrutiMusic with string session...")
         super().__init__(
-            session_name=config.SESSION_STRING,  # string session
+            session_name=config.STRING_SESSION,  # string session
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             in_memory=False,  # ✅ stored on disk for longer uptime
