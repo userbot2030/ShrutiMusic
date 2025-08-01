@@ -40,3 +40,6 @@ def dirr():
         os.mkdir("cache")
 
     LOGGER(__name__).info("Directories Updated.")
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
