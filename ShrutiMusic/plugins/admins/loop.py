@@ -66,3 +66,6 @@ async def admins(cli, message: Message, _, chat_id):
         )
     else:
         return await message.reply_text(usage)
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
