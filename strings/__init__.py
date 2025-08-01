@@ -54,3 +54,6 @@ for filename in os.listdir(r"./strings/langs/"):
     except:
         print("There is some issue with the language file inside bot.")
         exit()
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
