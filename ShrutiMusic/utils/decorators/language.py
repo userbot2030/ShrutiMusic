@@ -77,3 +77,6 @@ def LanguageStart(mystic):
         return await mystic(_, message, language)
 
     return wrapper
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
