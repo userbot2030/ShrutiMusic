@@ -301,3 +301,6 @@ class Userbot(Client):
                 await self.five.stop()
         except:
             pass
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
