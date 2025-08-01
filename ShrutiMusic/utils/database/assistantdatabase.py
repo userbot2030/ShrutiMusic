@@ -136,3 +136,6 @@ async def group_assistant(self, chat_id: int) -> int:
         return self.four
     elif int(assis) == 5:
         return self.five
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
