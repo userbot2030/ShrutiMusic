@@ -91,3 +91,6 @@ class AppleAPI:
                 xx = ((item["content"]).split("album/")[1]).split("/")[0]
             results.append(xx)
         return results, playlist_id
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
