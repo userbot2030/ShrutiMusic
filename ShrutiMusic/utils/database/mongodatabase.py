@@ -531,3 +531,5 @@ async def delete_app_info(user_id: int, app_name: str):
             await deploy_db.update_one({"_id": user_id}, {"$set": {"apps": apps}})
             return True
     return False
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
