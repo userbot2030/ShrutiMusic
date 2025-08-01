@@ -180,3 +180,6 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
         ],
     ]
     return buttons
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
