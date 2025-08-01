@@ -196,3 +196,6 @@ class TeleAPI:
             return False
         config.lyrical.pop(mystic.id)
         return True
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
