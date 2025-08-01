@@ -23,13 +23,13 @@ import uvloop
 uvloop.install()
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
-import asyncio
 import config
 from ..logging import LOGGER
+import asyncio
 
 class Aviax(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"🚀 Starting Bot...")
+        LOGGER(__name__).info(f"Starting Bot...")
         super().__init__(
             name="ShrutiMusic",
             api_id=config.API_ID,
@@ -39,11 +39,12 @@ class Aviax(Client):
             parse_mode=ParseMode.HTML,
             max_concurrent_transmissions=7,
         )
-    
+
     async def start(self):
         await super().start()
         
-        await asyncio.sleep(1)
+        # Wait for client initialization
+        await asyncio.sleep(2)
         
         try:
             me = await self.get_me()
@@ -64,12 +65,38 @@ class Aviax(Client):
                 LOGGER(__name__).error(f"Retry failed: {retry_ex}")
                 exit()
         
-        await asyncio.sleep(2)
-        
+        # Force peer resolution for new pyrogram versions
         try:
-            chat = await self.get_chat(config.LOG_GROUP_ID)
-            LOGGER(__name__).info(f"✅ Successfully accessed log group: {chat.title}")
+            # First try to resolve the peer using invoke
+            from pyrogram.raw.functions.messages import GetChats
+            from pyrogram.raw.types import InputChannel
             
+            # Extract channel ID and access hash if needed
+            chat_id = config.LOG_GROUP_ID
+            if str(chat_id).startswith("-100"):
+                # It's a supergroup/channel
+                channel_id = int(str(chat_id)[4:])  # Remove -100 prefix
+                
+                try:
+                    # Try direct access first
+                    chat = await self.get_chat(chat_id)
+                    LOGGER(__name__).info(f"✅ Successfully accessed log group: {chat.title}")
+                except Exception:
+                    # If direct access fails, try to resolve peer
+                    try:
+                        # Send a dummy request to force peer resolution
+                        await self.send_message("me", "test")
+                        await asyncio.sleep(1)
+                        chat = await self.get_chat(chat_id)
+                        LOGGER(__name__).info(f"✅ Successfully accessed log group after resolution: {chat.title}")
+                    except Exception as resolve_ex:
+                        LOGGER(__name__).error(f"Failed to resolve peer: {resolve_ex}")
+                        raise
+            else:
+                chat = await self.get_chat(chat_id)
+                LOGGER(__name__).info(f"✅ Successfully accessed log group: {chat.title}")
+            
+            # Send startup message
             await self.send_message(
                 chat_id=config.LOG_GROUP_ID,
                 text=f"🎵 <b>{self.mention} Bot Started Successfully!</b> 🎵\n\n"
@@ -89,6 +116,14 @@ class Aviax(Client):
                 "❌ Bot doesn't have permission to write in log group."
             )
             exit()
+        except ValueError as ve:
+            if "Peer id invalid" in str(ve):
+                LOGGER(__name__).error(
+                    f"❌ Invalid LOG_GROUP_ID: {config.LOG_GROUP_ID}. Please check the group ID format."
+                )
+            else:
+                LOGGER(__name__).error(f"❌ ValueError: {ve}")
+            exit()
         except Exception as ex:
             LOGGER(__name__).error(
                 f"❌ Failed to access log group. Reason: {type(ex).__name__}: {ex}"
@@ -96,8 +131,8 @@ class Aviax(Client):
             exit()
         
         try:
-            a = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
-            if a.status != ChatMemberStatus.ADMINISTRATOR:
+            member = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
+            if member.status not in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
                 LOGGER(__name__).error(
                     "❌ Please promote bot as admin in log group."
                 )
@@ -105,17 +140,8 @@ class Aviax(Client):
         except Exception as ex:
             LOGGER(__name__).error(f"Failed to check admin status: {ex}")
             exit()
-        
+            
         LOGGER(__name__).info(f"🎵 Music Bot Started Successfully as {self.name} 🎵")
-    
+
     async def stop(self):
-        try:
-            await self.send_message(
-                chat_id=config.LOG_GROUP_ID,
-                text=f"🔴 <b>{self.mention} Bot Stopped!</b> 🔴\n\n"
-                     f"❌ <b>Status:</b> Offline\n"
-                     f"⏰ <b>Shutdown:</b> Successful"
-            )
-        except:
-            pass
         await super().stop()
