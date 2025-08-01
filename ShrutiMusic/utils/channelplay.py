@@ -43,3 +43,6 @@ async def get_channeplayCB(_, command, CallbackQuery):
         chat_id = CallbackQuery.message.chat.id
         channel = None
     return chat_id, channel
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
