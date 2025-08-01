@@ -395,3 +395,6 @@ async def maintenance_shellrunner(_, message: Message):
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
     await message.stop_propagation()
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
