@@ -118,3 +118,6 @@ class SpotifyAPI:
             results.append(info)
 
         return results, artist_id
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
