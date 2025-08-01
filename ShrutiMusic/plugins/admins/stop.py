@@ -43,3 +43,6 @@ async def stop_music(cli, message: Message, _, chat_id):
     await message.reply_text(
         _["admin_5"].format(message.from_user.mention), reply_markup=close_markup(_)
     )
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
