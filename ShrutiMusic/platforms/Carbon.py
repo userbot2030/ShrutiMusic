@@ -126,3 +126,6 @@ class CarbonAPI:
             with open(f"cache/carbon{user_id}.jpg", "wb") as f:
                 f.write(resp)
             return realpath(f.name)
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
