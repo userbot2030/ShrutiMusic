@@ -288,3 +288,6 @@ __HELP__ = """
 /ɪɴғᴏ [ᴜsᴇʀ_ɪᴅ]: Gᴇᴛ ᴅᴇᴛᴀɪᴇᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ᴜsᴇʀ.
 /ᴜsᴇʀɪɴғᴏ [ᴜsᴇʀ_ɪᴅ]: Aɪᴀs ғᴏʀ /ɪɴғᴏ.
 """
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
