@@ -41,3 +41,6 @@ async def AviaxBin(text):
         return
     link = BASE + resp["message"]
     return link
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
