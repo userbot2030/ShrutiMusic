@@ -61,3 +61,6 @@ def speed_markup(_, chat_id):
         ]
     )
     return upl
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
