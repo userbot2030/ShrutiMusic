@@ -23,3 +23,6 @@ async def save_couple(cid: int, date: str, couple: dict, img: str):
         coupledb[cid] = {"couple": {}, "img": ""}
     coupledb[cid]["couple"][date] = couple
     coupledb[cid]["img"] = img
+
+
+# ❤️ Love From ShrutiBots 
