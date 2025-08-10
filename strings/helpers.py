@@ -353,6 +353,13 @@ HELP_34 = """ 🏷️ <b>WISH TAG HELP</b> 🌟
 HELP_35 = """ <b>User Welcome Message</b>
 • /welcome on/off: Enable or Disable welcome message . """
 
+HELP_36 = """ 💑 <b>COUPLE OF THE DAY</b> 💖
+
+• /couple - Selects two random members in the group as today's couple ❤️  
+• /couples - Same as /couple, shows today's selected couple 💏
+
+📸 Beautiful framed photo with both DPs will be generated 🖼️  
+📅 Next couple will be selected automatically tomorrow ⏳ """
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
@@ -361,3 +368,6 @@ HELP_35 = """ <b>User Welcome Message</b>
 # 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
 # 📢 Telegram Channel : https://t.me/ShrutiBots
 # ===========================================
+
+
+# ❤️ Love From ShrutiBots 
