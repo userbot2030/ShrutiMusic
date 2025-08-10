@@ -190,3 +190,6 @@ Nᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ {tomorro
             os.remove(cppic_path)
         except Exception as cleanup_error:
             print(f"Error during cleanup: {cleanup_error}")
+
+
+# ❤️ Love From ShrutiBots 
