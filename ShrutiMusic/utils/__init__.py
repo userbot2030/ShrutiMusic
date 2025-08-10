@@ -29,6 +29,7 @@ from .inline import *
 from .pastebin import *
 from .sys import *
 from .error import *
+from .couple import *
 
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
