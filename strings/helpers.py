@@ -368,3 +368,6 @@ HELP_36 = """ 💑 <b>COUPLE OF THE DAY</b> 💖
 # 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
 # 📢 Telegram Channel : https://t.me/ShrutiBots
 # ===========================================
+
+
+# ❤️ Love From ShrutiBots 
