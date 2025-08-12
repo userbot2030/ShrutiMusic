@@ -22,7 +22,7 @@
 
 from .admins import *
 from .language import *
-from .decorators import ONLY_GROUP, ONLY_ADMIN
+from .decorators import *
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
