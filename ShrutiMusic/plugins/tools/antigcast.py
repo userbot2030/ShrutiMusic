@@ -4,7 +4,7 @@ import os
 from ShrutiMusic import app
 from ShrutiMusic.utils import pastebin
 from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
-from utils.decorators import ONLY_GROUP, ONLY_ADMIN
+from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import db
 from ShrutiMusic.utils.database import *
 from ShrutiMusic.utils.query_group import ankes_group
