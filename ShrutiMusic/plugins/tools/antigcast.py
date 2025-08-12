@@ -2,7 +2,7 @@ import asyncio
 
 from ShrutiMusic import app
 from utils import pastebin
-from deleter import Deleter, VerifyAnkes
+from utils.deleter import deleter, verifyAnkes
 from utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import db
 from ShrutiMusic.utils.database import *
@@ -31,7 +31,7 @@ async def removeword(chat_id, text):
 @app.on_message(filters.command(["protect", "antigcast"]) & ~BANNED_USERS)
 @ONLY_GROUP
 @ONLY_ADMIN
-@VerifyAnkes
+@verifyAnkes
 async def ankestools(client, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
@@ -48,7 +48,7 @@ async def ankestools(client, message):
         if status is None:
             return await message.reply(">**Protect belum diaktifkan**")
         await db.remove_var(chat_id, "PROTECT")
-        Deleter.SETUP_CHATS.remove(chat_id)
+        deleter.SETUP_CHATS.remove(chat_id)
         return await message.reply(f">**Berhasil mengatur protect menjadi {jk}.**")
     else:
         return await message.reply(f">**{jk} Format salah, Gunakan `/protect [on/off]`.**")
@@ -105,7 +105,7 @@ async def add_approve(client, message):
     if ids in freedom:
         return await message.reply_text(">**Pengguna sudah disetujui.**")
     await db.add_to_var(chat_id, "APPROVED_USERS", ids)
-    Deleter.WHITELIST_USER[chat_id].append(ids)
+    deleter.WHITELIST_USER[chat_id].append(ids)
     return await message.reply(f">**Pengguna: {user.mention} telah disetujui tidak akan terkena antigcast.")
 
 
@@ -132,7 +132,7 @@ async def un_approve(client, message):
     if ids not in freedom:
         return await message.reply_text(">**Pengguna memang belum disetujui.**")
     await db.remove_from_var(chat_id, "APPROVED_USERS", ids)
-    Deleter.WHITELIST_USER[chat_id].remove(ids)
+    deleter.WHITELIST_USER[chat_id].remove(ids)
     return await message.reply(f">**Pengguna: {user.mention} telah dihapus dari daftar approved.**")
 
 @app.on_message(filters.command(["listwhite", "approved"]) & ~BANNED_USERS)
@@ -195,7 +195,7 @@ async def _(client, message):
     if ids in dicekah:
         return await message.reply_text(">**Pengguna sudah diblacklist.**")
     await db.add_to_var(chat_id, "SILENT_USER", ids)
-    Deleter.BLACKLIST_USER[chat_id].append(ids)
+    deleter.BLACKLIST_USER[chat_id].append(ids)
     msg = await message.reply(f">**Pengguna: {ids} ditambahkan ke blacklist.**")
     await asyncio.sleep(1)
     return await msg.delete()
@@ -222,7 +222,7 @@ async def _(client, message):
     if ids not in dicekah:
         return await message.reply_text("User not in blacklist.")
     await db.remove_from_var(chat_id, "SILENT_USER", ids)
-    Deleter.BLACKLIST_USER[chat_id].remove(ids)
+    deleter.BLACKLIST_USER[chat_id].remove(ids)
     msg = await message.reply(f">**Pengguna: {ids} dihapus ke blacklist.**")
     await asyncio.sleep(1)
     return await msg.delete()
