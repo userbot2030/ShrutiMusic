@@ -294,7 +294,7 @@ Mau ngapain hayo liat kesini wkwkwkkwkwkwkwk
 
 @app.on_message(filters.incoming & filters.group & ~filters.bot & ~filters.via_bot, group=ankes_group)
 async def handle_deleter(client, message):
-    if message.chat.id not in await dB.get_list_from_var(client.me.id, "CHAT_ANTIGCAST"):
+    if message.chat.id not in await db.get_list_from_var(client.me.id, "CHAT_ANTIGCAST"):
         return
     if message.sender_chat:
         return
