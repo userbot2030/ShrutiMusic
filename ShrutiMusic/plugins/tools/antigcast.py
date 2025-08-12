@@ -2,7 +2,7 @@ import asyncio
 
 from ShrutiMusic import app
 from ShrutiMusic.utils import pastebin
-from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
+from utils.deleter import Deleter, VerifyAnkes
 from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import dB
 from ShrutiMusic.utils.query_group import ankes_group
