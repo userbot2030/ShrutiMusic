@@ -30,9 +30,9 @@ from .pastebin import *
 from .sys import *
 from .error import *
 from .couple import *
-from .deleter import Deleter, VerifyAnkes
-from .query_group import ankes_group
-from utils import pastebin
+from .deleter import *
+from .query_group import *
+from utils import *
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
