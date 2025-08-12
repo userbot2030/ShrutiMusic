@@ -22,6 +22,8 @@
 
 from .admins import *
 from .language import *
+from .only_group import ONLY_GROUP
+from .only_admin import ONLY_ADMIN
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
