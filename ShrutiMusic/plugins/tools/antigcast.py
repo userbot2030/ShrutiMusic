@@ -3,6 +3,9 @@ import os
 
 from ShrutiMusic import app
 from ShrutiMusic.utils import pastebin
+from pyrogram import *
+from pyrogram.types import *
+from ShrutiMusic import LOGGER
 from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
 from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import db
