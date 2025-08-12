@@ -30,7 +30,7 @@ from .pastebin import *
 from .sys import *
 from .error import *
 from .couple import *
-from .deleter import Deleter
+from .deleter import Deleter, VerifyAnkes
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
