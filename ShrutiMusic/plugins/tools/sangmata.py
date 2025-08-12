@@ -1,12 +1,11 @@
 import asyncio
 import random
 import config
-
+import database
 
 from ShrutiMusic import app, userbot
 from pyrogram import filters, raw
 from utils.query_group import sangmata_group
-from utils.database import dB
 from ShrutiMusic.utils.decorators import ONLY_ADMIN, ONLY_GROUP
 
 
