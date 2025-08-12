@@ -16,3 +16,17 @@ def group_queries(queries):
             grouped[key] = []
         grouped[key].append(query)
     return grouped
+
+def ankes_group(data):
+    """
+    Fungsi contoh untuk mengelompokkan data ankes (angket kesehatan/group).
+    Ubah logika sesuai kebutuhan aplikasi kamu.
+    """
+    # Contoh logika: kelompokkan data berdasarkan field 'group'
+    result = {}
+    for item in data:
+        key = item.get('group', 'lainnya')
+        result.setdefault(key, []).append(item)
+    return result
+
+# Tambahkan fungsi lain jika dibutuhkan
