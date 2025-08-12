@@ -1,7 +1,6 @@
 import asyncio
 
 from ShrutiMusic import app
-from utils import pastebin
 from utils.deleter import Deleter, VerifyAnkes
 from utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from utils.database import dB
