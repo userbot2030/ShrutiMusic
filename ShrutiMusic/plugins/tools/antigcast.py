@@ -2,8 +2,8 @@ import asyncio
 
 from ShrutiMusic import app
 from ShrutiMusic.utils import pastebin
-from utils.deleter import Deleter, VerifyAnkes
-from utils.decorators import ONLY_GROUP, ONLY_ADMIN
+from ShrutiMusic.deleter import Deleter, VerifyAnkes
+from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import dB
 from ShrutiMusic.utils.query_group import ankes_group
 from config import BANNED_USERS
