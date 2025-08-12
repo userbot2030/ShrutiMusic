@@ -30,6 +30,7 @@ from .pastebin import *
 from .sys import *
 from .error import *
 from .couple import *
+from .query_group import sangmata_group *
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
