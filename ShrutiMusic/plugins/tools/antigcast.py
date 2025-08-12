@@ -2,7 +2,7 @@ import asyncio
 
 from ShrutiMusic import app
 from ShrutiMusic.utils import pastebin
-from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
+from ShrutiMusic.utils.deleter import Deleter
 from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import dB
 from ShrutiMusic.utils.query_group import ankes_group
@@ -30,7 +30,6 @@ async def removeword(chat_id, text):
 @app.on_message(filters.command(["protect", "antigcast"]) & ~BANNED_USERS)
 @ONLY_GROUP
 @ONLY_ADMIN
-@VerifyAnkes
 async def ankestools(_, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
