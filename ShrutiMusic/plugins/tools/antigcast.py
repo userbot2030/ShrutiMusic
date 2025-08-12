@@ -31,7 +31,7 @@ async def removeword(chat_id, text):
 @app.on_message(filters.command(["protect", "antigcast"]) & ~BANNED_USERS)
 @ONLY_GROUP
 @ONLY_ADMIN
-@verifyAnkes
+@VerifyAnkes
 async def ankestools(client, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
