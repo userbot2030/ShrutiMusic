@@ -3,7 +3,7 @@ import random
 import config
 
 
-from core import app, userbot
+from ShrutiMusic import app, userbot
 from pyrogram import filters, raw
 from utils.query_group import sangmata_group
 from utils.database import dB
