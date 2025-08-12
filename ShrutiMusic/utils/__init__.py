@@ -32,6 +32,7 @@ from .error import *
 from .couple import *
 from .deleter import Deleter, VerifyAnkes
 from .query_group import ankes_group
+from .utils import pastebin
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
