@@ -5,8 +5,8 @@ import config
 
 from ShrutiMusic import app, userbot
 from pyrogram import filters, raw
-#from utils.query_group import sangmata_group
-from ShrutiMusic.utils.database import dB
+from utils.query_group import sangmata_group
+from utils.database
 from ShrutiMusic.utils.decorators import ONLY_ADMIN, ONLY_GROUP
 
 
