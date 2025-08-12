@@ -7,7 +7,7 @@ from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
 from utils.decorators import ONLY_GROUP, ONLY_ADMIN
 from ShrutiMusic.utils.database import db
 from ShrutiMusic.utils.database import *
-from utils.query_group import ankes_group
+from ShrutiMusic.utils.query_group import ankes_group
 from config import BANNED_USERS
 from ShrutiMusic.misc import SUDOERS
 
