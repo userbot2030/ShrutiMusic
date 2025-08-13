@@ -25,7 +25,7 @@ from ShrutiMusic.core.dir import dirr
 from ShrutiMusic.core.git import git
 from ShrutiMusic.core.userbot import Userbot
 from ShrutiMusic.misc import dbb, heroku
-from ShrutiMusic.utils.blacklist import addword_blacklist
+
 from .logging import LOGGER
 
 dirr()
