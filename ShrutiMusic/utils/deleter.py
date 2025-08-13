@@ -1,3 +1,5 @@
+import asyncio
+
 class Deleter:
     WHITELIST_USER = {}
     BLACKLIST_USER = {}
@@ -5,19 +7,20 @@ class Deleter:
 
     @staticmethod
     async def setup_antigcast(client, message):
-        # Your setup code here
+        print("Setup antigcast dijalankan")
+        # kode setup kamu di sini
         pass
 
     @staticmethod
     async def deleter(client, message):
-        # Your delete logic here
+        print("Deleter dijalankan")
+        # kode delete kamu di sini
         pass
-
-import asyncio
 
 def VerifyAnkes(func):
     async def wrapper(*args, **kwargs):
-        # logika verifikasi
+        print("Verifikasi dulu ya...")
+        # logika verifikasi di sini (misal cek sesuatu)
         return await func(*args, **kwargs)
     return wrapper
 
@@ -25,5 +28,6 @@ def VerifyAnkes(func):
 async def tugas():
     print("Sedang menjalankan tugas")
 
-# Memanggil fungsi async
-asyncio.run(tugas())
+# Cara menjalankan fungsi async
+if __name__ == "__main__":
+    asyncio.run(tugas())
