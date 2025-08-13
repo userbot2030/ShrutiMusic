@@ -21,6 +21,7 @@
 
 import asyncio
 import importlib
+from utils.blacklist import addword_blacklist
 from pyrogram import idle
 from pyrogram.types import BotCommand
 from pytgcalls.exceptions import NoActiveGroupCall
@@ -116,12 +117,11 @@ COMMANDS = [
     BotCommand("bots", "🤖 Get list of bots in group")
 ]
 
-# ... (import lain dan kode lain)
+# ... import lain yang kamu perlukan
 
 async def setup_bot_commands():
     """Setup bot commands during startup"""
     try:
-        # Set bot commands
         await app.set_bot_commands(COMMANDS)
         LOGGER("ShrutiMusic").info("Bot commands set successfully!")
     except Exception as e:
@@ -173,9 +173,8 @@ async def init():
 
     await Aviax.decorators()
 
-    # ————> PANGGIL DI SINI DENGAN AWAIT
+    # Panggil dengan await
     await addword_blacklist()
-    # ———————
 
     LOGGER("ShrutiMusic").info(
         "\x53\x68\x72\x75\x74\x69\x20\x4d\x75\x73\x69\x63\x20\x53\x74\x61\x72\x74\x65\x64\x20\x53\x75\x63\x63\x65\x73\x73\x66\x75\x6c\x6c\x79\x2e\x0a\x0a\x44\x6f\x6e\x27\x74\x20\x66\x6f\x72\x67\x65\x74\x20\x74\x6f\x20\x76\x69\x73\x69\x74\x20\x40\x53\x68\x72\x75\x74\x69\x42\x6f\x74\x73"
@@ -186,15 +185,9 @@ async def init():
     await app.stop()
     await userbot.stop()
     LOGGER("ShrutiMusic").info("Stopping Shruti Music Bot...🥺")
-    
-async def init():
-    # kode lain ...
-    await addword_blacklist()  # Panggil dengan await
-    # kode lain ...
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
-
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
 # ===========================================
