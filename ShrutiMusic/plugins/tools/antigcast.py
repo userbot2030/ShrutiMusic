@@ -5,23 +5,23 @@ from ShrutiMusic import app, LOGGER
 from ShrutiMusic.utils import pastebin
 from ShrutiMusic.utils.deleter import Deleter, VerifyAnkes
 from ShrutiMusic.utils.decorators import ONLY_GROUP, ONLY_ADMIN
-from ShrutiMusic.utils.database import db
+from ShrutiMusic.utils.database import dB
 from ShrutiMusic.utils.query_group import ankes_group
 from config import BANNED_USERS
 from ShrutiMusic.misc import SUDOERS
 
 async def blacklistword(chat_id, text):
-    list_text = await db.get_var(chat_id, "delete_word") or []
+    list_text = await dB.get_var(chat_id, "delete_word") or []
     if text not in list_text:
         list_text.append(text)
-        await db.set_var(chat_id, "delete_word", list_text)
+        await dB.set_var(chat_id, "delete_word", list_text)
     return text
 
 async def removeword(chat_id, text):
-    list_text = await db.get_var(chat_id, "delete_word") or []
+    list_text = await dB.get_var(chat_id, "delete_word") or []
     if text in list_text:
         list_text.remove(text)
-        await db.set_var(chat_id, "delete_word", list_text)
+        await dB.set_var(chat_id, "delete_word", list_text)
         return text
     return None
 
@@ -39,11 +39,11 @@ async def ankestools(client, message: Message):
     if len(message.command) < 2:
         return await message.reply(">**Gunakan format `/protect [on/off]`**")
     jk = message.command[1]
-    status = await db.get_var(chat_id, "PROTECT")
+    status = await dB.get_var(chat_id, "PROTECT")
     if jk.lower() == "on":
         if status:
             return await message.reply(">**Protect sudah diaktifkan**")
-        await db.set_var(chat_id, "PROTECT", jk)
+        await dB.set_var(chat_id, "PROTECT", jk)
         await Deleter.setup_antigcast(client, message)
         return await message.reply(
             f">**Berhasil mengatur protect menjadi {jk}.**\n\n"
@@ -52,7 +52,7 @@ async def ankestools(client, message: Message):
     elif jk.lower() == "off":
         if status is None:
             return await message.reply(">**Protect belum diaktifkan**")
-        await db.remove_var(chat_id, "PROTECT")
+        await dB.remove_var(chat_id, "PROTECT")
         if hasattr(Deleter, "SETUP_CHATS") and chat_id in Deleter.SETUP_CHATS:
             Deleter.SETUP_CHATS.remove(chat_id)
         return await message.reply(f">**Berhasil mengatur protect menjadi {jk}.**")
@@ -64,13 +64,13 @@ async def ankestools(client, message: Message):
 @ONLY_ADMIN
 async def clear_approved(_, message: Message):
     chat_id = message.chat.id
-    users = await db.get_list_from_var(chat_id, "APPROVED_USERS")
+    users = await dB.get_list_from_var(chat_id, "APPROVED_USERS")
     for user in users:
         try:
             ensure_chat_dict(Deleter.WHITELIST_USER, chat_id).remove(user)
         except Exception:
             pass
-        await db.remove_from_var(chat_id, "APPROVED_USERS", user)
+        await dB.remove_from_var(chat_id, "APPROVED_USERS", user)
     return await message.reply(">**Berhasil menghapus semua pengguna approved.**")
 
 @app.on_message(filters.command(["clearblack"]) & ~BANNED_USERS)
@@ -78,13 +78,13 @@ async def clear_approved(_, message: Message):
 @ONLY_ADMIN
 async def clear_blackuser(_, message: Message):
     chat_id = message.chat.id
-    users = await db.get_list_from_var(chat_id, "SILENT_USER")
+    users = await dB.get_list_from_var(chat_id, "SILENT_USER")
     for user in users:
         try:
             ensure_chat_dict(Deleter.BLACKLIST_USER, chat_id).remove(user)
         except Exception:
             pass
-        await db.remove_from_var(chat_id, "SILENT_USER", user)
+        await dB.remove_from_var(chat_id, "SILENT_USER", user)
     return await message.reply(">**Berhasil menghapus list black pengguna.**")
 
 @app.on_message(filters.command(["free", "approve", "addwhite"]) & ~BANNED_USERS)
@@ -106,10 +106,10 @@ async def add_approve(client, message: Message):
     ids = user.id
     if ids in SUDOERS:
         return await message.reply(">**Pengguna adalah SUDOERS bot!!**")
-    freedom = await db.get_list_from_var(chat_id, "APPROVED_USERS")
+    freedom = await dB.get_list_from_var(chat_id, "APPROVED_USERS")
     if ids in freedom:
         return await message.reply_text(">**Pengguna sudah disetujui.**")
-    await db.add_to_var(chat_id, "APPROVED_USERS", ids)
+    await dB.add_to_var(chat_id, "APPROVED_USERS", ids)
     ensure_chat_dict(Deleter.WHITELIST_USER, chat_id).append(ids)
     return await message.reply(f">**Pengguna: {user.mention} telah disetujui tidak akan terkena antigcast.**")
 
@@ -132,10 +132,10 @@ async def un_approve(client, message: Message):
     except (errors.PeerIdInvalid, KeyError, errors.UsernameInvalid, errors.UsernameNotOccupied):
         return await message.reply(">**Silahkan berikan id pengguna yang valid!!**")
     ids = user.id
-    freedom = await db.get_list_from_var(chat_id, "APPROVED_USERS")
+    freedom = await dB.get_list_from_var(chat_id, "APPROVED_USERS")
     if ids not in freedom:
         return await message.reply_text(">**Pengguna memang belum disetujui.**")
-    await db.remove_from_var(chat_id, "APPROVED_USERS", ids)
+    await dB.remove_from_var(chat_id, "APPROVED_USERS", ids)
     ensure_chat_dict(Deleter.WHITELIST_USER, chat_id).remove(ids)
     return await message.reply(f">**Pengguna: {user.mention} telah dihapus dari daftar approved.**")
 
@@ -144,7 +144,7 @@ async def un_approve(client, message: Message):
 @ONLY_ADMIN
 async def listapproved(_, message: Message):
     chat_id = message.chat.id
-    approved = await db.get_list_from_var(chat_id, "APPROVED_USERS")
+    approved = await dB.get_list_from_var(chat_id, "APPROVED_USERS")
     if not approved:
         return await message.reply(">**Belum ada pengguna yang disetujui.**")
     msg = f"<blockquote expandable>**Pengguna Approved Di {message.chat.title}:**\n\n"
@@ -162,7 +162,7 @@ async def listapproved(_, message: Message):
 @ONLY_ADMIN
 async def listblack(_, message: Message):
     chat_id = message.chat.id
-    blacklist = await db.get_list_from_var(chat_id, "SILENT_USER")
+    blacklist = await dB.get_list_from_var(chat_id, "SILENT_USER")
     if not blacklist:
         return await message.reply(">**Belum ada pengguna yang diblacklist.**")
     msg = f"<blockquote expandable>**Pengguna Blacklist Di {message.chat.title}:**\n\n"
@@ -194,10 +194,10 @@ async def add_black(client, message: Message):
     ids = user.id
     if ids in SUDOERS:
         return await message.reply(">**Pengguna adalah SUDOERS bot!!**")
-    dicekah = await db.get_list_from_var(chat_id, "SILENT_USER")
+    dicekah = await dB.get_list_from_var(chat_id, "SILENT_USER")
     if ids in dicekah:
         return await message.reply_text(">**Pengguna sudah diblacklist.**")
-    await db.add_to_var(chat_id, "SILENT_USER", ids)
+    await dB.add_to_var(chat_id, "SILENT_USER", ids)
     ensure_chat_dict(Deleter.BLACKLIST_USER, chat_id).append(ids)
     msg = await message.reply(f">**Pengguna: {ids} ditambahkan ke blacklist.**")
     await asyncio.sleep(1)
@@ -220,10 +220,10 @@ async def del_black(client, message: Message):
     except (errors.PeerIdInvalid, KeyError, errors.UsernameInvalid, errors.UsernameNotOccupied):
         return await message.reply(">**Silahkan berikan id pengguna yang valid!!**")
     ids = user.id
-    dicekah = await db.get_list_from_var(chat_id, "SILENT_USER")
+    dicekah = await dB.get_list_from_var(chat_id, "SILENT_USER")
     if ids not in dicekah:
         return await message.reply_text(">**User tidak ada di blacklist.**")
-    await db.remove_from_var(chat_id, "SILENT_USER", ids)
+    await dB.remove_from_var(chat_id, "SILENT_USER", ids)
     ensure_chat_dict(Deleter.BLACKLIST_USER, chat_id).remove(ids)
     msg = await message.reply(f">**Pengguna: {ids} dihapus dari blacklist.**")
     await asyncio.sleep(1)
@@ -273,7 +273,7 @@ async def delword_blacklist(_, message: Message):
 @ONLY_ADMIN
 async def listwordblacklist(_, message: Message):
     chat_id = message.chat.id
-    list_text = await db.get_var(chat_id, "delete_word")
+    list_text = await dB.get_var(chat_id, "delete_word")
     if not list_text:
         return await message.reply(">**Belum ada pesan yg diblacklist.**")
     msg = f"<blockquote expandable>**Daftar Blacklist Di {message.chat.title}:**\n"
@@ -288,7 +288,7 @@ async def listwordblacklist(_, message: Message):
 
 @app.on_message(filters.incoming & filters.group & ~filters.bot & ~filters.via_bot, group=ankes_group)
 async def handle_deleter(client, message: Message):
-    if message.chat.id not in await db.get_list_from_var(client.me.id, "CHAT_ANTIGCAST"):
+    if message.chat.id not in await dB.get_list_from_var(client.me.id, "CHAT_ANTIGCAST"):
         return
     if message.sender_chat:
         return
@@ -297,7 +297,6 @@ async def handle_deleter(client, message: Message):
 
 __MODULE__ = "Anti-Gcast"
 __HELP__ = """
-<blockquote expandable>
 🚫 <b>Global Anti-Spam Protection</b>
 • <b>/protect</b> or <b>/antigcast</b> [on/off] – Enable or disable Gcast protection.
 
@@ -319,5 +318,4 @@ __HELP__ = """
 • <b>/listbl</b> – Show all blacklisted texts.
 
 <i>Note: If admin list is outdated (e.g. bot deletes admin messages), use <b>/reload</b> to refresh.</i>
-</blockquote>
 """
