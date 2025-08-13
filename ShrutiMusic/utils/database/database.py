@@ -65,6 +65,39 @@ playmode = {}
 playtype = {}
 skipmode = {}
 
+# Simpel, hanya untuk demo (pakai dict). Untuk produksi, ganti dengan database sungguhan.
+class dB:
+    users = {}
+    vars = {}
+
+    @staticmethod
+    async def cek_userdata(user_id):
+        return user_id in dB.users
+
+    @staticmethod
+    async def add_userdata(user_id, first, last, username):
+        dB.users[user_id] = {
+            "depan": first,
+            "belakang": last,
+            "username": username,
+        }
+
+    @staticmethod
+    async def get_userdata(user_id):
+        return dB.users.get(user_id, None)
+
+    @staticmethod
+    async def get_var(chat_id, var):
+        return dB.vars.get((chat_id, var), False)
+
+    @staticmethod
+    async def set_var(chat_id, var, value):
+        dB.vars[(chat_id, var)] = value
+
+    @staticmethod
+    async def remove_var(chat_id, var):
+        if (chat_id, var) in dB.vars:
+            del dB.vars[(chat_id, var)]
 
 async def get_assistant_number(chat_id: int) -> str:
     assistant = assistantdict.get(chat_id)
