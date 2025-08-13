@@ -19,7 +19,7 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
-
+from utils.blacklist import addword_blacklist
 import asyncio
 import importlib
 from pyrogram import idle
@@ -187,6 +187,11 @@ async def init():
     await app.stop()
     await userbot.stop()
     LOGGER("ShrutiMusic").info("Stopping Shruti Music Bot...🥺")
+    
+async def init():
+    # kode lain ...
+    await addword_blacklist()  # Panggil dengan await
+    # kode lain ...
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
