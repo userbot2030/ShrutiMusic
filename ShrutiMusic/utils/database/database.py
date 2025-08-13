@@ -66,39 +66,54 @@ playtype = {}
 skipmode = {}
 
 # Simpel, hanya untuk demo (pakai dict). Untuk produksi, ganti dengan database sungguhan.
+
+
+# Simpel database berbasis dictionary (bisa diganti dengan database asli jika mau)
+DB = {}
+
 class dB:
-    users = {}
-    vars = {}
+    @staticmethod
+    async def get_var(chat_id, key):
+        # Ambil value dari database
+        return DB.get((chat_id, key))
 
     @staticmethod
-    async def cek_userdata(user_id):
-        return user_id in dB.users
+    async def set_var(chat_id, key, value):
+        # Set value di database
+        DB[(chat_id, key)] = value
 
     @staticmethod
-    async def add_userdata(user_id, first, last, username):
-        dB.users[user_id] = {
-            "depan": first,
-            "belakang": last,
-            "username": username,
-        }
+    async def remove_var(chat_id, key):
+        # Hapus key di database
+        DB.pop((chat_id, key), None)
 
     @staticmethod
-    async def get_userdata(user_id):
-        return dB.users.get(user_id, None)
+    async def get_list_from_var(chat_id, key):
+        # Ambil value list, jika tidak ada return []
+        value = DB.get((chat_id, key))
+        if isinstance(value, list):
+            return value
+        return []
 
     @staticmethod
-    async def get_var(chat_id, var):
-        return dB.vars.get((chat_id, var), False)
+    async def add_to_var(chat_id, key, item):
+        # Tambah item ke list
+        value = DB.get((chat_id, key))
+        if not isinstance(value, list):
+            value = []
+        if item not in value:
+            value.append(item)
+        DB[(chat_id, key)] = value
 
     @staticmethod
-    async def set_var(chat_id, var, value):
-        dB.vars[(chat_id, var)] = value
+    async def remove_from_var(chat_id, key, item):
+        # Hapus item dari list
+        value = DB.get((chat_id, key))
+        if isinstance(value, list) and item in value:
+            value.remove(item)
+            DB[(chat_id, key)] = value
 
-    @staticmethod
-    async def remove_var(chat_id, var):
-        if (chat_id, var) in dB.vars:
-            del dB.vars[(chat_id, var)]
-
+# Jika ingin versi async/await bisa pakai database asli seperti aiosqlite, motor, dll.
 async def get_assistant_number(chat_id: int) -> str:
     assistant = assistantdict.get(chat_id)
     return assistant
