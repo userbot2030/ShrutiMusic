@@ -13,8 +13,17 @@ class Deleter:
         # Your delete logic here
         pass
 
+import asyncio
+
 def VerifyAnkes(func):
     async def wrapper(*args, **kwargs):
-        # Your verification logic
+        # logika verifikasi
         return await func(*args, **kwargs)
     return wrapper
+
+@VerifyAnkes
+async def tugas():
+    print("Sedang menjalankan tugas")
+
+# Memanggil fungsi async
+asyncio.run(tugas())
