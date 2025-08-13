@@ -19,7 +19,6 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
-from utils.blacklist import addword_blacklist
 import asyncio
 import importlib
 from pyrogram import idle
