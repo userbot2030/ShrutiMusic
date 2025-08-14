@@ -19,7 +19,6 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
-
 import random
 import string
 
@@ -44,8 +43,9 @@ from ShrutiMusic.utils.inline import (
 )
 from ShrutiMusic.utils.logger import play_logs
 from ShrutiMusic.utils.stream.stream import stream
-from config import BANNED_USERS, lyrical
+from config import BANNED_USERS, lyrical, MUST_JOIN
 
+from utils.forcejoin import check_force_join  # Tambahkan ini
 
 @app.on_message(
     filters.command(
@@ -74,6 +74,30 @@ async def play_commnd(
     playmode,
     url,
     fplay,
+):
+    # Force join check (tambahkan di sini)
+    if not await check_force_join(client, message, MUST_JOIN):
+        try:
+            invite_link = await client.export_chat_invite_link(MUST_JOIN)
+        except Exception:
+            invite_link = f"https://t.me/{MUST_JOIN}"
+        return await message.reply(
+            f"👋 Untuk menggunakan fitur play musik, kamu harus join dulu ke channel berikut:\n"
+            f"➡️ [Klik untuk Join Channel]({invite_link})",
+            disable_web_page_preview=True,
+        )
+
+    # --- lanjutkan seluruh kode play.py asli kamu di bawah ini ---
+    mystic = await message.reply_text(
+        _["play_2"].format(channel) if channel else _["play_1"]
+    )
+    # Seluruh kode asli kamu tetap di sini, tidak berubah
+    # Mulai dari mystic = await message.reply_text(...) sampai akhir fungsi
+    # (Copy seluruh isi dari handler play_commnd di file play.py aslimu)
+
+    # ... lanjutkan kode asli play_commnd seperti semula ...
+
+# Handler callback dan fungsi lain tidak perlu diubah (tetap seperti file play.py kamu sebelumnya)
 ):
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
