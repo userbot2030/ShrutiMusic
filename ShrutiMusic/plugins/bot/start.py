@@ -19,7 +19,9 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
+
 import time
+
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -43,24 +45,11 @@ from ShrutiMusic.utils.formatters import get_readable_time
 from ShrutiMusic.utils.inline import help_pannel_page1, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
-from config import MUST_JOIN
-from utils.forcejoin import check_force_join
+
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
-    # Force join check
-    if not await check_force_join(client, message, MUST_JOIN):
-        try:
-            invite_link = await client.export_chat_invite_link(MUST_JOIN)
-        except Exception:
-            invite_link = f"https://t.me/{MUST_JOIN}"
-        return await message.reply(
-            f"👋 Untuk menggunakan bot ini, kamu harus join dulu ke channel berikut:\n"
-            f"➡️ [Klik untuk Join Channel]({invite_link})",
-            disable_web_page_preview=True,
-        )
-
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
@@ -186,7 +175,7 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
-    
+
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
