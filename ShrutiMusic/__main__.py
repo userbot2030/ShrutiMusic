@@ -118,16 +118,6 @@ COMMANDS = [
     BotCommand("bots", "🤖 Get list of bots in group")
 ]
 
-# ... kode lain ...
-
-@app.on_message(filters.command("start"))
-async def start_handler(client, message):
-    await message.reply(
-        f"Selamat datang! Silakan join channel berikut dulu ya: @{MUST_JOIN}"
-    )
-
-# ... kode lain ...
-
 async def setup_bot_commands():
     """Setup bot commands during startup"""
     try:
