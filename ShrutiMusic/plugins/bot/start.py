@@ -44,7 +44,7 @@ from ShrutiMusic.utils.inline import help_pannel_page1, private_panel, start_pan
 from config import BANNED_USERS
 from strings import get_string
 from config import MUST_JOIN
-from utils.forcejoin import check_force_join  # pastikan file ini ada
+from utils.forcejoin import check_force_join
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
