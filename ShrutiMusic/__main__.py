@@ -25,15 +25,14 @@ import importlib
 from pyrogram import idle
 from pyrogram.types import BotCommand
 from pytgcalls.exceptions import NoActiveGroupCall
-import config
-#from config import MUST_JOIN
+import contoh 
 from ShrutiMusic import LOGGER, app, userbot
 from ShrutiMusic.core.call import Aviax
 from ShrutiMusic.misc import sudo
 from ShrutiMusic.plugins import ALL_MODULES
 from ShrutiMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
-
+from config import MUST_JOIN
 # Bot Commands List
 COMMANDS = [
     BotCommand("start", "🚀 Start bot"),
