@@ -69,8 +69,6 @@ BUYUSERBOT = os.getenv("BUYUSERBOT", "https://t.me/WildanUltraPrem_bot")
 MAVIASTORY = os.getenv("MAVIASTORY", "https://t.me/MaviaStoryChannel")
 DONATE = os.getenv("DONATE", "https://link.dana.id/qr/6l85aa18")
 PRIVACY_LINK = os.getenv("PRIVACY_LINK", "https://graph.org/Privacy-Policy-05-01-30")
-# Tambahkan di bagian paling bawah
-MUST_JOIN = "Disney_storeDan"  # tanpa @, contoh: shrutimusicofficial
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # ⏱️ Duration & Playlist Settings
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
