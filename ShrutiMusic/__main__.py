@@ -26,7 +26,7 @@ from pyrogram import idle
 from pyrogram.types import BotCommand
 from pytgcalls.exceptions import NoActiveGroupCall
 import config
-from config import MUST_JOIN
+#from config import MUST_JOIN
 from ShrutiMusic import LOGGER, app, userbot
 from ShrutiMusic.core.call import Aviax
 from ShrutiMusic.misc import sudo
