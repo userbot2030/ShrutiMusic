@@ -32,7 +32,6 @@ from ShrutiMusic.misc import sudo
 from ShrutiMusic.plugins import ALL_MODULES
 from ShrutiMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
-from config import MUST_JOIN
 # Bot Commands List
 COMMANDS = [
     BotCommand("start", "🚀 Start bot"),
