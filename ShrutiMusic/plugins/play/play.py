@@ -43,8 +43,8 @@ from ShrutiMusic.utils.inline import (
 )
 from ShrutiMusic.utils.logger import play_logs
 from ShrutiMusic.utils.stream.stream import stream
-from config import BANNED_USERS, lyrical, MUST_JOIN
-
+from config import BANNED_USERS, lyrical
+from config import MUST_JOIN
 from utils.forcejoin import check_force_join  # Tambahkan ini
 
 @app.on_message(
