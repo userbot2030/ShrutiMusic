@@ -26,6 +26,7 @@ from pyrogram import idle
 from pyrogram.types import BotCommand
 from pytgcalls.exceptions import NoActiveGroupCall
 import config
+from config import MUST_JOIN
 from ShrutiMusic import LOGGER, app, userbot
 from ShrutiMusic.core.call import Aviax
 from ShrutiMusic.misc import sudo
@@ -116,6 +117,16 @@ COMMANDS = [
     BotCommand("gali", "😤 Send random gali"),
     BotCommand("bots", "🤖 Get list of bots in group")
 ]
+
+# ... kode lain ...
+
+@app.on_message(filters.command("start"))
+async def start_handler(client, message):
+    await message.reply(
+        f"Selamat datang! Silakan join channel berikut dulu ya: @{MUST_JOIN}"
+    )
+
+# ... kode lain ...
 
 async def setup_bot_commands():
     """Setup bot commands during startup"""
