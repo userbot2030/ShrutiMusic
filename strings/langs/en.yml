@@ -17,8 +17,8 @@ tg_7 : "𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖢𝖺𝗇𝖼𝖾𝗅𝗅𝖾𝖽 �
 tg_8 : "𝖥𝖺𝗂𝗅𝖾𝖽 𝖳𝗈 𝖲𝗍𝗈𝗉 𝖳𝗁𝖾 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 ."
 tg_9 : "𝖥𝖺𝗂𝗅𝖾𝖽 𝖳𝗈 𝖦𝖾𝗍 𝖳𝗁𝖾 𝖮𝗇𝗀𝗈𝗂𝗇𝗀 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖳𝖺𝗌𝗄 ..."
 
-call_1 : "<blockquote><b>Bot memerlukan Izin **Admin** untuk mengundang akun asisten ke saluran kamu.</b></blockquote> ."
-call_2 : "<blockquote><b>Asisten diblokir di grup atau saluran kamu, harap batalkan pemblokiran.\n\n**Nama Pengguna Asisten:** @{0}\n**ID Asisten:** {1}</b></blockquote> ."
+call_1 : "<blockquote><b>Bot memerlukan Izin **Admin** untuk mengundang akun asisten ke saluran kamu.</b></blockquote>"
+call_2 : "<blockquote><b>Asisten diblokir di grup atau saluran kamu, harap batalkan pemblokiran.\n\n**Nama Pengguna Asisten:** @{1}\n**ID Asisten:** {2}</b></blockquote>"
 call_3 : "<blockquote><b>Pengecualian Terjadi Saat Mengundang Akun Asisten ke chat kamu.\n\n**Alasan**: {1} </b></blockquote>"
 call_4 : "<blockquote><b>Akun Asisten akan bergabung dalam 5 Detik.. Harap Tunggu!</b></blockquote>"
 call_5 : "<blockquote><b>Akun Asisten {0} Berhasil Bergabung.\n\nMulai Musik Sekarang</b></blockquote>"
@@ -336,6 +336,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
