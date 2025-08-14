@@ -21,7 +21,7 @@ call_1 : "<blockquote><b>Bot memerlukan Izin **Admin** untuk mengundang akun asi
 call_2 : "<blockquote><b>Asisten diblokir di grup atau saluran kamu, harap batalkan pemblokiran.\n\n**Nama Pengguna Asisten:** @{0}\n**ID Asisten:** {1}</b></blockquote> ."
 call_3 : "<blockquote><b>Pengecualian Terjadi Saat Mengundang Akun Asisten ke chat kamu.\n\n**Alasan**: {1} </b></blockquote>"
 call_4 : "<blockquote><b>Akun Asisten akan bergabung dalam 5 Detik.. Harap Tunggu!</b></blockquote>"
-call_5 : "<blockquote><b>Akun Asisten[{0}] Berhasil Bergabung.\n\nMulai Musik Sekarang</b></blockquote>"
+call_5 : "<blockquote><b>Akun Asisten {0} Berhasil Bergabung.\n\nMulai Musik Sekarang</b></blockquote>"
 call_6 : "𝖥𝖺𝗂𝗅𝖾𝖽 𝖳𝗈 𝖲𝗐𝗂𝗍𝖼𝗁 𝖲𝗍𝗋𝖾𝖺𝗆 , 𝖯𝗅𝖾𝖺𝗌𝖾 𝖴𝗌𝖾 /skip 𝖳𝗈 𝖢𝗁𝖺𝗇𝗀𝖾 𝖳𝗁𝖾 𝖳𝗋𝖺𝖼𝗄 ."
 call_7 : "𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 𝖭𝖾𝗑𝗍 𝖳𝗋𝖺𝖼𝗄 𝖥𝗋𝗈𝗆  𝖰𝗎𝖾𝗎𝖾 .\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖧𝗈𝗅𝖽 𝖮𝗇 ..."
 call_8 : "<b>𝖭𝗈 𝖠𝖼𝗍𝗂𝗏𝖾 𝖵𝗂𝖽𝖾𝗈𝖢𝗁𝖺𝗍 𝖥𝗈𝗎𝗇𝖽 .</b>\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖲𝗍𝖺𝗋𝗍 𝖵𝗂𝖽𝖾𝗈𝖢𝗁𝖺𝗍 𝖨𝗇 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 / 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 𝖠𝗇𝖽 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 ."
@@ -336,6 +336,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
