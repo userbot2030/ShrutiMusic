@@ -164,7 +164,7 @@ ping_2 : "<blockquote><b>🏓 𝖯𝗈𝗇𝗀 : <code>{0}ᴍs</code>\n\n<b><u>{
 queue_1 : "<blockquote><b>Mohon Tunggu..Mengambil Antrian..</b></blockquote>"
 queue_2 : "<blockquote><b>Daftar Antrian kosong. Tidak ada trek yang ditemukan</b></blockquote>"
 queue_3 : "<blockquote><b><u>**Trek Antrian:</u>** [Lihat Trek Antrian Lainnya Dari Sini]({0})</b></blockquote>"
-queue_4 : "<blockquote><b>⏳ Ditambahkan ke Antrian di **#{0}\n\nJudul:** {1}\n⏰**Durasi:** Menit {2}\n👤**Ditambahkan Oleh:** {3}</b></blockquote>"
+queue_4 : "<blockquote><b>⏳ Ditambahkan ke Antrian di **#{0}\n\nJudul:** {1}\n⏰**Durasi:** {2} Menit\n👤**Ditambahkan Oleh:** {3}</b></blockquote>"
 queue_5 : "<blockquote><b>Hanya satu track di dalam antrian, Silahkan tambahkan lagi untuk check list</b></blockquote>"
 queue_6 : "<b>🕚 ᴅᴜʀᴀᴛɪᴏɴ :</b> 𝖴𝗇𝗄𝗇𝗈𝗐𝗇 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖲𝗍𝗋𝖾𝖺𝗆\n\n𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 𝖳𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇 𝖡𝖾𝗅𝗈𝗐 𝖳𝗈 𝖦𝖾𝗍 𝖶𝗁𝗈𝗅𝖾 𝖰𝗎𝖾𝗎𝖾𝖽 𝖫𝗂𝗌𝗍 ."
 queue_7 : "\n𝖢𝗅𝗂𝖼𝗄 𝖮𝗇 𝖳𝗁𝖾 𝖡𝗎𝗍𝗍𝗈𝗇 𝖡𝖾𝗅𝗈𝗐 𝖳𝗈 𝖦𝖾𝗍 𝖶𝗁𝗈𝗅𝖾 𝖰𝗎𝖾𝗎𝖾𝖽 𝖫𝗂𝗌𝗍 ."
@@ -336,6 +336,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
