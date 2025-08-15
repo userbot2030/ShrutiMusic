@@ -37,11 +37,11 @@ auth_6 : "𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖠𝗎𝗍𝗁𝗈𝗋𝗂𝗌𝖾�
 auth_7 : "𝖫𝗂𝗌𝗍 𝖮𝖿 𝖠𝗎𝗍𝗁𝗈𝗋𝗂𝗓𝖾𝖽 𝖴𝗌𝖾𝗋 𝖨𝗇 {0} :\n\n"
 auth_8 : "<b>↬ 𝖠𝖽𝖽𝖾𝖽 𝖡𝗒 :</b>"
 
-reload_1 : "<blockquote><b>Anda hanya dapat Memperbarui Cache Admin Sekali dalam 3 Menit .\n\nSilakan coba lagi Setelah {0}<b></b></blockquote>"
-reload_2 : "<blockquote><b>Cache Admin Berhasil Diperbarui<b></b><blockquote>"
-reload_3 : "𝖥𝖺𝗂𝗅𝖾𝖽 𝖳𝗈 𝖱𝖾𝗅𝗈𝖺𝖽 𝖠𝖽𝗆𝗂𝗇 𝖢𝖺𝖼𝗁𝖾 , 𝖬𝖺𝗄𝖾 𝖲𝗎𝗋𝖾 𝖳𝗁𝖺𝗍 𝖠𝖽𝗆𝗂𝗇 𝖨𝗇 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 ."
-reload_4 : "𝖯𝗅𝖾𝖺𝗌𝖾 𝖶𝖺𝗂𝗍 ... \n\n𝖱𝖾𝖻𝗈𝗈𝗍𝗂𝗇𝗀 {0} 𝖥𝗈𝗋 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 ."
-reload_5 : "𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖱𝖾𝖻𝗈𝗈𝗍𝖾𝖽 {0} 𝖥𝗈𝗋 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 .\n\n𝖲𝗍𝖺𝗋𝗍 𝖯𝗅𝖺𝗒𝗂𝗇𝗀 𝖭𝗈𝗐 ..."
+reload_1 : "<blockquote><b>Anda hanya dapat Memperbarui Cache Admin Sekali dalam 3 Menit .\n\nSilakan coba lagi Setelah {0}</b></blockquote>"
+reload_2 : "<blockquote><b>Cache Admin Berhasil Diperbarui</b><blockquote>"
+reload_3 : "<blockquote><b>Gagal Memuat Ulang Cache Admin, Pastikan Admin ada di Obrolan Anda</b></blockquote>"
+reload_4 : "<blockquote><b>Mohon tunggu ... \n\nMemulai ulang {0} Untuk Obrolan Anda</b></blockquote>"
+reload_5 : "<blockquote><b>Berhasil di-boot Ulang {0} untuk Obrolan anda .\n\nMulai putar Sekarang...</b></blockquote>"
 
 admin_1 : "𝖣𝗂𝖽 𝖸𝗈𝗎 𝖱𝖾𝗆𝖾𝗆𝖻𝖾𝗋 𝖳𝗁𝖺𝗍 𝖸𝗈𝗎'𝗏𝖾  𝖱𝖾𝗌𝗎𝗆𝖾𝖽 𝖳𝗁𝖾 𝖢𝗁𝖺𝗍 ?"
 admin_2 : "<blockquote><b>♬ Obrolan Suara Dijeda oleh {}!</b></blockquote>"
@@ -336,6 +336,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
