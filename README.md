@@ -9,25 +9,25 @@
 </p>
 
 <p align="center">
-  <a href="https://t.me/ShrutiBots"><img src="https://img.shields.io/badge/Support%20Channel-blue?style=for-the-badge&logo=telegram&logoColor=white&link=https://t.me/ShrutiBots" alt="Support Channel"></a>
-  <a href="https://t.me/ShrutiBotSupport"><img src="https://img.shields.io/badge/Support%20Group-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Support Group"></a>
+  <a href="https://t.me/Disney_storeDan"><img src="https://img.shields.io/badge/Support%20Channel-blue?style=for-the-badge&logo=telegram&logoColor=white&link=https://t.me/ShrutiBots" alt="Support Channel"></a>
+  <a href="https://t.me/musik_supportdan"><img src="https://img.shields.io/badge/Support%20Group-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Support Group"></a>
   <a href="https://t.me/WTF_WhyMeeh"><img src="https://img.shields.io/badge/Owner-purple?style=for-the-badge&logo=telegram&logoColor=white" alt="Owner"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/NoxxOP/ShrutiMusic/fork"><img src="https://img.shields.io/github/forks/NoxxOP/ShrutiMusic?style=social" alt="GitHub Forks"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/stargazers"><img src="https://img.shields.io/github/stars/NoxxOP/ShrutiMusic?style=social" alt="GitHub Stars"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/graphs/contributors"><img src="https://img.shields.io/github/contributors/NoxxOP/ShrutiMusic?style=social" alt="GitHub Contributors"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/fork"><img src="https://img.shields.io/github/forks/userbot2030/ShrutiMusic?style=social" alt="GitHub Forks"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/stargazers"><img src="https://img.shields.io/github/stars/userbot2030/ShrutiMusic?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/graphs/contributors"><img src="https://img.shields.io/github/contributors/userbot2030/ShrutiMusic?style=social" alt="GitHub Contributors"></a>
 </p>
 
 <p align="center">
-<a href="https://dashboard.heroku.com/new?template=https://github.com/NoxxOP/ShrutiMusic"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku&logoColor=white" width="250px" alt="Deploy to Heroku"></a>
+<a href="https://dashboard.heroku.com/new?template=https://github.com/userbot2030/ShrutiMusic"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku&logoColor=white" width="250px" alt="Deploy to Heroku"></a>
 </p>
 
 <h2 align="center">🚀 Deploy to Render (Free)</h2>
 
 <p align="center">
-  <a href="https://render.com/deploy?repo=https://github.com/NoxxOP/ShrutiMusic">
+  <a href="https://render.com/deploy?repo=https://github.com/userbot2030/ShrutiMusic">
     <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
   </a>
 </p>
@@ -45,12 +45,12 @@
 ## 📊 Repository Stats
 
 <p align="center">
-  <a href="https://github.com/NoxxOP/ShrutiMusic"><img src="https://img.shields.io/github/repo-size/NoxxOP/ShrutiMusic?style=flat-square" alt="Repo Size"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/issues"><img src="https://img.shields.io/github/issues/NoxxOP/ShrutiMusic?style=flat-square" alt="Issues"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/network/members"><img src="https://img.shields.io/github/forks/NoxxOP/ShrutiMusic?style=flat-square" alt="Forks"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/stargazers"><img src="https://img.shields.io/github/stars/NoxxOP/ShrutiMusic?style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/blob/main/LICENSE"><img src="https://img.shields.io/github/license/NoxxOP/ShrutiMusic?style=flat-square" alt="LICENSE"></a>
-  <a href="https://github.com/NoxxOP/ShrutiMusic/commits/main"><img src="https://img.shields.io/github/last-commit/NoxxOP/ShrutiMusic?style=flat-square" alt="Last Commit"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic"><img src="https://img.shields.io/github/repo-size/userbot2030/ShrutiMusic?style=flat-square" alt="Repo Size"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/issues"><img src="https://img.shields.io/github/issues/userbot2030/ShrutiMusic?style=flat-square" alt="Issues"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/network/members"><img src="https://img.shields.io/github/forks/userbot2030/ShrutiMusic?style=flat-square" alt="Forks"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/stargazers"><img src="https://img.shields.io/github/stars/userbot2030/ShrutiMusic?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/blob/main/LICENSE"><img src="https://img.shields.io/github/license/userbot2030/ShrutiMusic?style=flat-square" alt="LICENSE"></a>
+  <a href="https://github.com/userbot2030/ShrutiMusic/commits/main"><img src="https://img.shields.io/github/last-commit/userbot2030/ShrutiMusic?style=flat-square" alt="Last Commit"></a>
 </p>
 
 ## 🔥 Essential Commands
@@ -183,7 +183,7 @@ Example : screen -r 108108
 ### ☁️ Heroku Deployment
 
 <p align="center">
-<a href="https://dashboard.heroku.com/new?template=https://github.com/NoxxOP/ShrutiMusic"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku&logoColor=white" width="250px" alt="Deploy to Heroku"></a>
+<a href="https://dashboard.heroku.com/new?template=https://github.com/userbot2030/ShrutiMusic"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku&logoColor=white" width="250px" alt="Deploy to Heroku"></a>
 </p>
 
 1. Click the button above
@@ -215,7 +215,7 @@ Use our Session Generator Bot: [@ShrutiSessionBot](https://t.me/ShrutiSessionBot
 
 ## 🌟 Credits and Acknowledgements
 
-- [NoxxOP](https://github.com/NoxxOP): Main Developer
+- [userbot](https://github.com/userbot2030): Main Developer
 - All contributors who helped make this project better
 
 ## 📝 License
@@ -224,7 +224,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For any questions or help, join our [Support Group](https://t.me/ShrutiBotSupport)
+For any questions or help, join our [Support Group](https://t.me/musik_supportdan)
 
 <p align="center">
 <img src="https://img.shields.io/badge/Made%20with%20%E2%9D%A4%EF%B8%8F%20by-NoxxOP-red?style=for-the-badge" alt="Made with love">
