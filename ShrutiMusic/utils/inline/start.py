@@ -32,7 +32,7 @@ def start_panel(_):
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_GROUP),
         ],
         [
-            InlineKeyboardButton(text=_["E_X_1"], url=config.UPSTREAM_REPO),
+            InlineKeyboardButton(text=_["E_X_1"], url=config.BUYUSERBOT),
             InlineKeyboardButton(text=_["S_B_11"], callback_data="about_page")  # About button
         ],
     ]
@@ -59,7 +59,7 @@ def private_panel(_):
         [
             InlineKeyboardButton(
                 text=_["E_X_1"],
-                callback_data="fork_repo"
+                callback_data="BUYUSERBOT"
             ),
             InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
         ],
@@ -84,12 +84,11 @@ def about_panel(_):
 def owner_panel(_):
     buttons = [
         [
-            InlineKeyboardButton(text=_["S_H_1"], url=config.INSTAGRAM),
-            InlineKeyboardButton(text=_["S_H_2"], url=config.YOUTUBE),
+            InlineKeyboardButton(text=_["S_H_1"], url=config.BUYUSERBOT),
         ],
         [
-            InlineKeyboardButton(text=_["S_H_3"], url=config.GITHUB),
-            InlineKeyboardButton(text=_["S_H_4"], url=config.DONATE),
+            InlineKeyboardButton(text=_["S_H_2"], url=config.MAVIASTORY),
+            InlineKeyboardButton(text=_["S_H_3"], url=config.DONATE),
         ],
         [
             InlineKeyboardButton(text=_["BACK_BUTTON"], callback_data="settingsback_helper")
