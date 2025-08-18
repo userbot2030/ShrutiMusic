@@ -40,8 +40,8 @@ auth_8 : "<b>↬ 𝖠𝖽𝖽𝖾𝖽 𝖡𝗒 :</b>"
 reload_1 : "<blockquote><b>Anda Hanya Dapat Memperbarui Cache Admin Sekali dalam 3 Menit.Silakan Coba Lagi Setelah {0}.</b></blockquote>"
 reload_2 : "<blockquote><b>Cache admin berhasil dimuat ulang.</b></blockquote>"
 reload_3 : "<blockquote><b>Gagal Memuat Ulang Cache Admin, Pastikan Admin Ada di Obrolan Anda.</b></blockquote>"
-reload_4 : "<blockquote><b>Mohon Tunggu ... \n\nMemulai ulang {0} 𝖥𝗈𝗋 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 ."
-reload_5 : "𝖲𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒 𝖱𝖾𝖻𝗈𝗈𝗍𝖾𝖽 {0} 𝖥𝗈𝗋 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 .\n\n𝖲𝗍𝖺𝗋𝗍 𝖯𝗅𝖺𝗒𝗂𝗇𝗀 𝖭𝗈𝗐 ..."
+reload_4 : "<blockquote><b>Mohon Tunggu ... \n\nMemulai ulang {0} Untuk Obrolan Anda.</b></blockquote>"
+reload_5 : "<blockquote><b>Berhasil Di-boot Ulang {0} Untuk Obrolan Anda .\n\nMulai Putar Sekarang ...</b></blockquote>"
 
 admin_1 : "<blockquote><b>♬ Obrolan Suara Dilanjutkan oleh {0}!</b></blockquote>"
 admin_2 : "<blockquote><b>Musik sudah Dijeda oleh {0}!</b></blockquote>"
@@ -338,6 +338,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
