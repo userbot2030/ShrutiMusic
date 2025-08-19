@@ -45,8 +45,8 @@ reload_5 : "<blockquote><b>Berhasil Di-boot Ulang {0} Untuk Obrolan Anda .\n\nMu
 
 admin_1 : "<blockquote><b>♬ Obrolan Suara Dilanjutkan oleh {0}!</b></blockquote>"
 admin_2 : "<blockquote><b>Musik sudah Dijeda oleh {0}!</b></blockquote>"
-admin_3 : "<blockquote><b>Musik sudah dilanjutkan oleh {0}!</b></blockquote>"
-admin_4 : "<blockquote><b>♬ Obrolan Suara Dijeda oleh {0}!</b></blockquote>"
+admin_3 : "<blockquote><b>♬ Obrolan Suara Dijeda oleh {0}!</b></blockquote>"
+admin_4 : "<blockquote><b>Musik sudah dilanjutkan.</b></blockquote>"
 admin_5 : "<blockquote><b>Musik sudah dimatikan oleh {0}!</b></blockquote>"
 admin_6 : "<blockquote><b>♬ Obrolan Suara Dilewati oleh {0}!. Tidak Ada Lagi Musik di {1}! Antrean.</b></blockquote>"
 admin_7 : "<blockquote><b>Error saat mengubah aliran ke **{0}**\n\nSilakan gunakan /skip lagi.</b></blockquote>."
@@ -85,7 +85,7 @@ admin_39 : "𝖱𝖾𝗆𝗈𝗏𝖾𝖽 1 𝖴𝗉 𝖵𝗈𝗍𝖾 ."
 admin_40 : "𝖴𝗉 𝖵𝗈𝗍𝖾𝖽 ."
 
 start_1 : "<blockquote><b>{0} ɪꜱ ʙʀᴇᴀᴛʜɪɴɢ ꜱᴏғᴛʟʏ .\n\n<b> ᴜᴘᴛɪᴍᴇ:</b> {1}</b><blockquote>"
-start_2 : "<blockquote><b>Halo, saya {0}.\n\nbot streaming telegram dengan beberapa fitur berguna. untuk memudahkan kamu memutar music di obrolan suara\n\nJangan ragu untuk menambahkan saya kegroup kamu.</b></blockquote>"
+start_2 : "<blockquote><b>Halo, saya {1}.\n\nbot streaming telegram dengan beberapa fitur berguna. untuk memudahkan kamu memutar music di obrolan suara\n\nJangan ragu untuk menambahkan saya kegroup kamu.</b></blockquote>"
 start_3 : "<blockquote><b>Halo {0} ,\nTerima kasih telah menerima saya di {2}\n\nSaya Masih Berfungsi {2} , {3} Untuk bantuan atau bantuan apa pun, periksa Group dan Channel Support kami.</b></blockquote>"
 start_4 : "<b>𝖲𝗎𝗉𝖾𝗋𝖦𝗋𝗈𝗎𝗉 𝖭𝖾𝖾𝖽𝖾𝖽</b> \n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖢𝗈𝗇𝗏𝖾𝗋𝗍 𝖸𝗈𝗎𝗋 <b>𝖦𝗋𝗈𝗎𝗉</b> 𝖳𝗈 <b>𝖲𝗎𝗉𝖾𝗋𝖦𝗋𝗈𝗎𝗉</b> 𝖠𝗇𝖽 𝖳𝗁𝖾𝗇 𝖠𝖽𝖽 𝖬𝖾 𝖠𝗀𝖺𝗂𝗇 .\n\n<b>𝖧𝗈𝗐 𝖳𝗈 𝖬𝖺𝗄𝖾 𝖲𝗎𝗉𝖾𝗋𝖦𝗋𝗈𝗎𝗉 ?</b>\n- 𝖬𝖺𝗄𝖾 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉'𝗌 𝖢𝗁𝖺𝗍 𝖧𝗂𝗌𝗍𝗈𝗋𝗒 <b> 𝖵𝗂𝗌𝗂𝖻𝗅𝖾</b> 𝖮𝗇𝖼𝖾 ."
 start_5 : "<b>↝ 𝖡𝗅𝖺𝖼𝗄𝖫𝗂𝗌𝗍𝖾𝖽 𝖢𝗁𝖺𝗍𝗌 ↜</b>\n\n𝖳𝗁𝗂𝗌 𝖢𝗁𝖺𝗍 𝖨𝗌 𝖡𝗅𝖺𝖼𝗄𝖫𝗂𝗌𝗍𝖾𝖽 𝖮𝗇 {0} 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾 .\n𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖠 <a href={1}>𝖲𝗎𝖽𝗈𝖴𝗌𝖾𝗋</a> 𝖳𝗈 𝖴𝗇𝖻𝗅𝖺𝖼𝗄𝖫𝗂𝗌𝗍 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗍 𝖮𝗋 𝖵𝗂𝗌𝗂𝗍 <a href={2}>𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝖢𝗁𝖺𝗍 .</a>"
@@ -338,6 +338,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
