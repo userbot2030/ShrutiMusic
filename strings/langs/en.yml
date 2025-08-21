@@ -129,7 +129,7 @@ playcb_2 : "Mendapatkan Hasil Selanjutnya𝗍"
 
 cplay_1 : "kamu dapat memutar musik di Channel dari obrolan ini {0} ke channel mana pun atau Channdl tertaut obrolan kamu.\n\n**Untuk saluran tertaut:**\n`/{1} linked`\n\n* *Untuk Channel lainnya:**\n`/{1} [ID Channel]`"
 cplay_2 : "Obrolan ini tidak memiliki channel tertaut."
-cplay_3 : "Channel Ditetapkan ke {0}\n\n__ID Channel__: {1}"
+cplay_3 : "Channel Ditetapkan ke {2}\n\n__ID Channel__: {1}"
 cplay_4 : "Gagal mendapatkan channel.\n\nPastikan kamu telah menambahkan bot di channel kamu dan mempromosikannya sebagai admin.\nEdit atau Ubah channel melalui /channelplay"
 cplay_5 : "Hanya Channel yang didukung ."
 cplay_6 : "kamu harus menjadi **Pemilik** channel {0} untuk menghubungkannya dengan grup ini.\n**Pemilik Channel:** @{1}\n\nAtau kamu dapat menautkan grup kamu ke channel itu lalu coba sambungkan dengan `/channelplay linked`"
@@ -342,6 +342,7 @@ gban_9 : "» 𝖫𝗂𝖿𝗍𝖾𝖽 𝖦𝗅𝗈𝖻𝖺𝗅 𝖡𝖺𝗇 𝖥
 gban_10 : "» 𝖭𝗈 𝖮𝗇𝖾 𝖨 𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖥𝗋𝗈𝗆  𝖳𝗁𝖾 𝖡𝗈𝗍 ."
 gban_11 : "» 𝖥𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖦𝖻𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 𝖫𝗂𝗌𝗍 ..."
 gban_12 : "🙂 <b>𝖦𝗅𝗈𝖻𝖺𝗅𝗅𝗒 𝖡𝖺𝗇𝗇𝖾𝖽 𝖴𝗌𝖾𝗋𝗌 :</b>\n\n"
+
 
 
 
