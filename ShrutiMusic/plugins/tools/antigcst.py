@@ -18,7 +18,8 @@ from typing import List
 from pyrogram import filters, errors, enums
 from pyrogram.types import Message
 
-from ShrutiMusic import app, mongodb, SUDOERS, LOGGER, config
+from ShrutiMusic import app, SUDOERS, LOGGER, config
+from ShrutiMusic.core.mongo import mongodb
 from ShrutiMusic.utils.decorators import AdminActual
 
 COL = mongodb.antigcst  # per-chat collection
