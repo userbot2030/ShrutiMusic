@@ -28,7 +28,7 @@ from pyrogram import filters
 
 import config
 from ShrutiMusic.core.mongo import mongodb
-
+from .misc import mongodb
 from .logging import LOGGER
 
 SUDOERS = filters.user()
