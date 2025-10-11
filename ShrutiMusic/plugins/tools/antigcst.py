@@ -464,7 +464,7 @@ async def is_chat_admin(client, chat_id: int, user_id: int) -> bool:
 
 # Core protection: delete messages from blacklisted users or containing blacklisted words,
 # and if delete_all is enabled, delete any non-exempt message immediately.
-@app.on_message(filters.group & ~filters.bot & ~filters.edited, group=2)
+@app.on_message(filters.group & ~filters.bot, group=2)
 async def antigcst_handler(client, message: Message):
     try:
         doc = await COL.find_one(_chat_doc_key(message.chat.id))
