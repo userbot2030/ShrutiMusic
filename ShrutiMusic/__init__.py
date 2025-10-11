@@ -25,7 +25,7 @@ from ShrutiMusic.core.dir import dirr
 from ShrutiMusic.core.git import git
 from ShrutiMusic.core.userbot import Userbot
 from ShrutiMusic.misc import dbb, heroku
-from ShrutiMusic.misc import app, mongodb, SUDOERS, LOGGER, config 
+from ShrutiMusic.misc import app, SUDOERS, LOGGER, config  
 from .logging import LOGGER
 
 dirr()
