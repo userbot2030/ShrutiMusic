@@ -18,7 +18,8 @@ from typing import List
 from pyrogram import filters, errors, enums
 from pyrogram.types import Message
 
-from ShrutiMusic import app, SUDOERS, LOGGER, config
+from ShrutiMusic import app, LOGGER, config
+from ShrutiMusic.misc import SUDOERS
 from ShrutiMusic.core.mongo import mongodb
 from ShrutiMusic.utils.decorators import AdminActual
 
