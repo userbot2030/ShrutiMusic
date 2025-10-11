@@ -96,7 +96,7 @@ async def _notify_chat_toggle(chat_id: int, text: str):
 
 @app.on_message(filters.command(["protect", "antigcast"]) & filters.group)
 @AdminActual
-async def antigcst_toggle(client, message: Message):
+async def antigcst_toggle(client, message: Message, _):
     """
     /protect on|off
     /antigcast on|off
@@ -154,7 +154,7 @@ async def antigcst_toggle(client, message: Message):
 # Per-chat strict mode: delete any message (except exemptions)
 @app.on_message(filters.command(["protectmode", "antigcstmode"]) & filters.group)
 @AdminActual
-async def antigcst_mode(client, message: Message):
+async def antigcst_mode(client, message: Message, _):
     """
     /protectmode all on|off
     /antigcstmode all on|off
@@ -247,7 +247,7 @@ async def antigcst_config(client, message: Message):
 # Whitelist (approved) management
 @app.on_message(filters.command(["free", "approve", "addwhite"]) & filters.group)
 @AdminActual
-async def add_approve(client, message: Message):
+async def add_approve(client, message: Message, _):
     reply = message.reply_to_message
     try:
         target = reply.from_user.id if reply else int(message.command[1])
@@ -276,7 +276,7 @@ async def add_approve(client, message: Message):
 
 @app.on_message(filters.command(["unfree", "unapprove", "delwhite"]) & filters.group)
 @AdminActual
-async def un_approve(client, message: Message):
+async def un_approve(client, message: Message, _):
     reply = message.reply_to_message
     try:
         target = reply.from_user.id if reply else int(message.command[1])
@@ -301,7 +301,7 @@ async def un_approve(client, message: Message):
 
 @app.on_message(filters.command(["listwhite", "approved"]) & filters.group)
 @AdminActual
-async def list_approved(_, message: Message):
+async def list_approved(_, message: Message, __):
     approved = await _get_list(message.chat.id, "approved_users")
     if not approved:
         return await message.reply_text(">Belum ada pengguna yang disetujui.")
@@ -313,7 +313,7 @@ async def list_approved(_, message: Message):
 
 @app.on_message(filters.command(["clearwhite", "clearfree", "clearapproved"]) & filters.group)
 @AdminActual
-async def clear_approved(_, message: Message):
+async def clear_approved(_, message: Message, __):
     await COL.update_one(_chat_doc_key(message.chat.id), {"$set": {"approved_users": []}}, upsert=True)
     return await message.reply_text(">Berhasil menghapus semua pengguna approved.")
 
@@ -321,7 +321,7 @@ async def clear_approved(_, message: Message):
 # Blacklist (silent) management
 @app.on_message(filters.command(["addblack"]) & filters.group)
 @AdminActual
-async def add_black(client, message: Message):
+async def add_black(client, message: Message, _):
     reply = message.reply_to_message
     try:
         target = reply.from_user.id if reply else int(message.command[1])
@@ -353,7 +353,7 @@ async def add_black(client, message: Message):
 
 @app.on_message(filters.command(["delblack", "unblack"]) & filters.group)
 @AdminActual
-async def del_black(client, message: Message):
+async def del_black(client, message: Message, _):
     reply = message.reply_to_message
     try:
         target = reply.from_user.id if reply else int(message.command[1])
@@ -382,7 +382,7 @@ async def del_black(client, message: Message):
 
 @app.on_message(filters.command(["listblack"]) & filters.group)
 @AdminActual
-async def list_black(_, message: Message):
+async def list_black(_, message: Message, __):
     black = await _get_list(message.chat.id, "silent_users")
     if not black:
         return await message.reply_text(">Belum ada pengguna yang diblacklist.")
@@ -394,7 +394,7 @@ async def list_black(_, message: Message):
 
 @app.on_message(filters.command(["clearblack"]) & filters.group)
 @AdminActual
-async def clear_black(_, message: Message):
+async def clear_black(_, message: Message, __):
     await COL.update_one(_chat_doc_key(message.chat.id), {"$set": {"silent_users": []}}, upsert=True)
     return await message.reply_text(">Berhasil menghapus list black pengguna.")
 
@@ -402,7 +402,7 @@ async def clear_black(_, message: Message):
 # Text blacklist
 @app.on_message(filters.command(["bl"]) & filters.group)
 @AdminActual
-async def add_word_blacklist(client, message: Message):
+async def add_word_blacklist(client, message: Message, _):
     reply = message.reply_to_message
     if reply:
         text = reply.text or reply.caption
@@ -423,7 +423,7 @@ async def add_word_blacklist(client, message: Message):
 
 @app.on_message(filters.command(["unbl"]) & filters.group)
 @AdminActual
-async def del_word_blacklist(_, message: Message):
+async def del_word_blacklist(_, message: Message, __):
     reply = message.reply_to_message
     if reply:
         text = reply.text or reply.caption
@@ -442,7 +442,7 @@ async def del_word_blacklist(_, message: Message):
 
 @app.on_message(filters.command(["listbl"]) & filters.group)
 @AdminActual
-async def list_word_blacklist(_, message: Message):
+async def list_word_blacklist(_, message: Message, __):
     words = await _get_list(message.chat.id, "delete_words")
     if not words:
         return await message.reply_text(">Belum ada pesan yg diblacklist.")
