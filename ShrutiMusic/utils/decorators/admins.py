@@ -137,6 +137,8 @@ def AdminRightsCheck(mystic):
     return wrapper
 
 
+# ... (kode di atas tidak diubah) ...
+
 def AdminActual(mystic):
     async def wrapper(client, message):
         if await is_maintenance() is False:
@@ -170,16 +172,17 @@ def AdminActual(mystic):
             return await message.reply_text(_["general_3"], reply_markup=upl)
         if message.from_user.id not in SUDOERS:
             try:
-                member = (
-                    await app.get_chat_member(message.chat.id, message.from_user.id)
-                ).privileges
+                member_obj = await app.get_chat_member(message.chat.id, message.from_user.id)
+                member = getattr(member_obj, "privileges", None)
             except:
                 return
-            if not member.can_manage_video_chats:
+            if member is None or not getattr(member, "can_manage_video_chats", False):
                 return await message.reply(_["general_4"])
         return await mystic(client, message, _)
 
     return wrapper
+
+# ... (kode lain tidak diubah) ...
 
 
 def ActualAdminCB(mystic):
