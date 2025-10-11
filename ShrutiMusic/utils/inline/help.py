@@ -24,6 +24,7 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from ShrutiMusic import app
 
+
 def help_pannel_page1(_, START: Union[bool, int] = None):
     return InlineKeyboardMarkup(
         [
@@ -56,6 +57,7 @@ def help_pannel_page1(_, START: Union[bool, int] = None):
             ],
         ]
     )
+
 
 def help_pannel_page2(_, START: Union[bool, int] = None):
     return InlineKeyboardMarkup(
@@ -142,11 +144,6 @@ def help_pannel_page4(_, START: Union[bool, int] = None):
             ],
             [
                 InlineKeyboardButton(
-                    text="🛡️ AntiGCast", callback_data="help_callback antigcst"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
                     text=_["BACK_BUTTON"] if START else _["CLOSE_BUTTON"],
                     callback_data="settingsback_helper" if START else "close",
                 ),
@@ -177,6 +174,7 @@ def private_help_panel(_):
             ),
         ]
     ]
+
 
 # ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
 
