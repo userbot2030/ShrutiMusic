@@ -136,23 +136,23 @@ async def antigcst_toggle(client, message: Message, _):
             # allow SUDOERS only if sudo_override enabled
             if not (sudo_override and user_id in SUDOERS):
                 return await message.reply_text(
-                    "<blockquote><b>Hanya owner (atau SUDOERS jika sudo_override aktif) yang dapat mengubah pengaturan protect</b></blockquote>."
+                    "<blockquote><b>Hanya owner (atau SUDOERS jika sudo_override aktif) yang dapat mengubah pengaturan protect</b></blockquote>"
                 )
 
     if mode in ("on", "true", "1"):
         doc = await _get_doc(chat_id)
         if doc.get("protect"):
-            return await message.reply_text(">Protect sudah diaktifkan.")
+            return await message.reply_text("<blockquote><b>Protect sudah diaktifkan</b></blockquote>")
         await _set_protect(chat_id, True)
-        await _notify_chat_toggle(chat_id, f"<blockquote><b>🔒 Anti-Gcast PROTECT diaktifkan oleh {user_mention}</b></blockquote>.")
-        return await message.reply_text("<blockquote><b>Berhasil mengaktifkan protect</b></blockquote>.")
+        await _notify_chat_toggle(chat_id, f"<blockquote><b>🔒 Anti-Gcast PROTECT diaktifkan oleh {user_mention}</b></blockquote>")
+        return await message.reply_text("<blockquote><b>Berhasil mengaktifkan protect</b></blockquote>")
     elif mode in ("off", "false", "0"):
         doc = await _get_doc(chat_id)
         if not doc.get("protect"):
-            return await message.reply_text("<blockquote><b>Protect belum diaktifkan</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Protect belum diaktifkan</b></blockquote>")
         await _set_protect(chat_id, False)
-        await _notify_chat_toggle(chat_id, f"<blockquote><b>🔓 Anti-Gcast PROTECT dinonaktifkan oleh {user_mention}</b></blockquote>.")
-        return await message.reply_text("<blockquote><b>Berhasil menonaktifkan protect</b></blockquote>.")
+        await _notify_chat_toggle(chat_id, f"<blockquote><b>🔓 Anti-Gcast PROTECT dinonaktifkan oleh {user_mention}</b></blockquote>")
+        return await message.reply_text("<blockquote><b>Berhasil menonaktifkan protect</b></blockquote>")
     else:
         return await message.reply_text("<blockquote><b>Format salah. Gunakan: /protect [on|off]</b></blockquote>")
 
@@ -172,7 +172,7 @@ async def antigcst_mode(client, message: Message, _):
     """
     chat_id = message.chat.id
     if len(message.command) < 3:
-        return await message.reply_text(">Gunakan: /protectmode all on|off")
+        return await message.reply_text("<blockquote><b>Gunakan: /protectmode all on|off</b></blockquote>")
 
     sub = message.command[1].lower()
     val = message.command[2].lower()
@@ -189,22 +189,22 @@ async def antigcst_mode(client, message: Message, _):
     if only_owner:
         owner_id = getattr(config, "OWNER_ID", None)
         if user_id != owner_id and not (sudo_override and user_id in SUDOERS):
-            return await message.reply_text("<blockquote><b>Hanya owner (atau SUDOERS jika sudo_override aktif) yang dapat mengubah mode ini</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Hanya owner (atau SUDOERS jika sudo_override aktif) yang dapat mengubah mode ini</b></blockquote>")
 
     if sub != "all":
-        return await message.reply_text("<blockquote><b>Opsi tidak dikenali. Saat ini hanya 'all' didukung</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Opsi tidak dikenali. Saat ini hanya 'all' didukung</b></blockquote>")
 
     if val not in ("on", "off", "true", "false", "1", "0"):
-        return await message.reply_text("<blockquote><b>Nilai harus on atau off</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Nilai harus on atau off</b></blockquote>")
 
     bool_val = val in ("on", "true", "1")
     await _set_delete_all(chat_id, bool_val)
     # notify group
     if bool_val:
-        await _notify_chat_toggle(chat_id, f"<blockquote><b>⛔️ delete_all (STRICT) mode DIHIDUPKAN oleh {user_mention}.\nSemua pesan non-exempt akan dihapus</b></blockquote>.")
+        await _notify_chat_toggle(chat_id, f"<blockquote><b>⛔️ delete_all (STRICT) mode DIHIDUPKAN oleh {user_mention}.\nSemua pesan non-exempt akan dihapus</b></blockquote>")
     else:
         await _notify_chat_toggle(chat_id, f"<blockquote><b>✅ delete_all (STRICT) mode DINONAKTIFKAN oleh {user_mention}.</b></blockquote>")
-    return await message.reply_text(f"<blockquote><b>delete_all (strict) diset ke {bool_val} untuk chat ini</b></blockquote>.")
+    return await message.reply_text(f"<blockquote><b>delete_all (strict) diset ke {bool_val} untuk chat ini</b></blockquote>")
 
 
 # OWNER-only global settings command
@@ -233,11 +233,11 @@ async def antigcst_config(client, message: Message):
         return await message.reply_text(text)
 
     if len(message.command) < 3:
-        return await message.reply_text("<blockquote><b>Sertakan nilai on atau off</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Sertakan nilai on atau off</b></blockquote>")
 
     val = message.command[2].lower()
     if val not in ("on", "off", "true", "false", "1", "0"):
-        return await message.reply_text("<blockquote><b>Nilai harus on atau off</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Nilai harus on atau off</b></blockquote>")
     bool_val = val in ("on", "true", "1")
 
     if cmd == "onlyowner":
@@ -247,7 +247,7 @@ async def antigcst_config(client, message: Message):
         await _set_global_config("sudo_override", bool_val)
         return await message.reply_text(f"<blockquote><b>sudo_override diset ke {bool_val}</b></blockquote>")
     else:
-        return await message.reply_text("<blockquote><b>Opsi tidak dikenali. Gunakan onlyowner atau sudooverride</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Opsi tidak dikenali. Gunakan onlyowner atau sudooverride</b></blockquote>")
 
 
 # Whitelist (approved) management
@@ -262,22 +262,22 @@ async def add_approve(client, message: Message, _):
         try:
             target = message.text.split(None, 1)[1]
         except Exception:
-            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>")
 
     try:
         user = await client.get_users(target)
     except (errors.PeerIdInvalid, errors.UsernameInvalid, errors.UsernameNotOccupied, ValueError):
-        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>")
 
     ids = user.id
     if ids in SUDOERS:
-        return await message.reply_text("<blockquote><b>Pengguna adalah SUDOERS bot</b></blockquote>!")
+        return await message.reply_text("<blockquote><b>Pengguna adalah SUDOERS bot!</b></blockquote>")
 
     approved = await _get_list(message.chat.id, "approved_users")
     if ids in approved:
-        return await message.reply_text("<blockquote><b>Pengguna sudah disetujui</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Pengguna sudah disetujui</b></blockquote>")
     await _add_to_list(message.chat.id, "approved_users", ids)
-    return await message.reply_text(f"<blockquote><b>Pengguna {user.mention} telah disetujui, tidak akan terkena antigcst</b></blockquote>.")
+    return await message.reply_text(f"<blockquote><b>Pengguna {user.mention} telah disetujui, tidak akan terkena antigcst</b></blockquote>")
 
 
 @app.on_message(filters.command(["unfree", "unapprove", "delwhite"]) & filters.group)
@@ -290,19 +290,19 @@ async def un_approve(client, message: Message, _):
         try:
             target = message.text.split(None, 1)[1]
         except Exception:
-            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>")
 
     try:
         user = await client.get_users(target)
     except (errors.PeerIdInvalid, errors.UsernameInvalid, errors.UsernameNotOccupied, ValueError):
-        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>")
 
     ids = user.id
     approved = await _get_list(message.chat.id, "approved_users")
     if ids not in approved:
-        return await message.reply_text("<blockquote><b>Pengguna memang belum disetujui</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Pengguna memang belum disetujui</b></blockquote>")
     await _remove_from_list(message.chat.id, "approved_users", ids)
-    return await message.reply_text(f"<blockquote><b>Pengguna {user.mention} telah dihapus dari daftar approved</b></blockquote>.")
+    return await message.reply_text(f"<blockquote><b>Pengguna {user.mention} telah dihapus dari daftar approved</b></blockquote>")
 
 
 @app.on_message(filters.command(["listwhite", "approved"]) & filters.group)
@@ -310,7 +310,7 @@ async def un_approve(client, message: Message, _):
 async def list_approved(_, message: Message, __):
     approved = await _get_list(message.chat.id, "approved_users")
     if not approved:
-        return await message.reply_text("<blockquote><b>Belum ada pengguna yang disetujui</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Belum ada pengguna yang disetujui</b></blockquote>")
     msg = "<b>Pengguna Approved:</b>\n\n"
     for i, uid in enumerate(approved, 1):
         msg += f"{i}. <code>{uid}</code>\n"
@@ -321,7 +321,7 @@ async def list_approved(_, message: Message, __):
 @AdminActual
 async def clear_approved(_, message: Message, __):
     await COL.update_one(_chat_doc_key(message.chat.id), {"$set": {"approved_users": []}}, upsert=True)
-    return await message.reply_text("<blockquote><b>Berhasil menghapus semua pengguna approved</b></blockquote>.")
+    return await message.reply_text("<blockquote><b>Berhasil menghapus semua pengguna approved</b></blockquote>")
 
 
 # Blacklist (silent) management
@@ -335,21 +335,21 @@ async def add_black(client, message: Message, _):
         try:
             target = message.text.split(None, 1)[1]
         except Exception:
-            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>")
     try:
         user = await client.get_users(target)
     except (errors.PeerIdInvalid, errors.UsernameInvalid, errors.UsernameNotOccupied, ValueError):
-        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>")
 
     ids = user.id
     if ids in SUDOERS:
-        return await message.reply_text("<blockquote><b>Pengguna adalah SUDOERS bot</b></blockquote>!")
+        return await message.reply_text("<blockquote><b>Pengguna adalah SUDOERS bot!</b></blockquote>")
     black = await _get_list(message.chat.id, "silent_users")
     if ids in black:
-        return await message.reply_text("<blockquote><b>Pengguna sudah diblacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Pengguna sudah diblacklist</b></blockquote>")
     await _add_to_list(message.chat.id, "silent_users", ids)
     # ephemeral feedback
-    msg = await message.reply_text(f"<blockquote><b>Pengguna: {ids} ditambahkan ke blacklist</b></blockquote>.")
+    msg = await message.reply_text(f"<blockquote><b>Pengguna: {ids} ditambahkan ke blacklist</b></blockquote>")
     try:
         await client.delete_messages(message.chat.id, msg.id)
     except Exception:
@@ -367,18 +367,18 @@ async def del_black(client, message: Message, _):
         try:
             target = message.text.split(None, 1)[1]
         except Exception:
-            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>.")
+            return await message.reply_text("<blockquote><b>Balas pesan pengguna atau berikan id/username</b></blockquote>")
     try:
         user = await client.get_users(target)
     except (errors.PeerIdInvalid, errors.UsernameInvalid, errors.UsernameNotOccupied, ValueError):
-        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Tidak dapat menemukan pengguna tersebut</b></blockquote>")
 
     ids = user.id
     black = await _get_list(message.chat.id, "silent_users")
     if ids not in black:
-        return await message.reply_text("<blockquote><b>User not in blacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>User not in blacklist</b></blockquote>")
     await _remove_from_list(message.chat.id, "silent_users", ids)
-    msg = await message.reply_text(f"<blockquote><b>Pengguna: {ids} dihapus dari blacklist</b></blockquote>.")
+    msg = await message.reply_text(f"<blockquote><b>Pengguna: {ids} dihapus dari blacklist</b></blockquote>")
     try:
         await client.delete_messages(message.chat.id, msg.id)
     except Exception:
@@ -391,7 +391,7 @@ async def del_black(client, message: Message, _):
 async def list_black(_, message: Message, __):
     black = await _get_list(message.chat.id, "silent_users")
     if not black:
-        return await message.reply_text("<blockquote><b>Belum ada pengguna yang diblacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Belum ada pengguna yang diblacklist</b></blockquote>")
     msg = "<b>Pengguna Blacklist:</b>\n\n"
     for i, uid in enumerate(black, 1):
         msg += f"{i}. <code>{uid}</code>\n"
@@ -402,7 +402,7 @@ async def list_black(_, message: Message, __):
 @AdminActual
 async def clear_black(_, message: Message, __):
     await COL.update_one(_chat_doc_key(message.chat.id), {"$set": {"silent_users": []}}, upsert=True)
-    return await message.reply_text("<blockquote><b>Berhasil menghapus list black pengguna</b></blockquote>.")
+    return await message.reply_text("<blockquote><b>Berhasil menghapus list black pengguna</b></blockquote>")
 
 
 # Text blacklist
@@ -415,9 +415,9 @@ async def add_word_blacklist(client, message: Message, _):
     elif len(message.command) > 1:
         text = message.text.split(None, 1)[1]
     else:
-        return await message.reply_text("<blockquote><b>Balas ke pesan atau berikan pesan untuk diblacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Balas ke pesan atau berikan pesan untuk diblacklist</b></blockquote>")
     if not text:
-        return await message.reply_text("<blockquote><b>Pesan tidak memiliki teks untuk diblacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Pesan tidak memiliki teks untuk diblacklist</b></blockquote>")
     await _add_to_list(message.chat.id, "delete_words", text)
     msg = await message.reply_text(f"<blockquote><b>Kata dimasukkan ke blacklist:\n{text}</b></blockquote>")
     try:
@@ -436,12 +436,12 @@ async def del_word_blacklist(_, message: Message, __):
     elif len(message.command) > 1:
         text = message.text.split(None, 1)[1]
     else:
-        return await message.reply_text("<blockquote><b>Balas ke pesan atau berikan pesan untuk dihapus dari blacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Balas ke pesan atau berikan pesan untuk dihapus dari blacklist</b></blockquote>")
     if not text:
-        return await message.reply_text("<blockquote><b>Pesan tidak memiliki teks untuk dihapus dari blacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Pesan tidak memiliki teks untuk dihapus dari blacklist</b></blockquote>")
     current = await _get_list(message.chat.id, "delete_words")
     if text not in current:
-        return await message.reply_text("<blockquote><b>Kata tidak ditemukan di blacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Kata tidak ditemukan di blacklist</b></blockquote>")
     await _remove_from_list(message.chat.id, "delete_words", text)
     return await message.reply_text(f"<blockquote><b>Kata dihapus dari blacklist:\n{text}</b></blockquote>")
 
@@ -451,7 +451,7 @@ async def del_word_blacklist(_, message: Message, __):
 async def list_word_blacklist(_, message: Message, __):
     words = await _get_list(message.chat.id, "delete_words")
     if not words:
-        return await message.reply_text("<blockquote><b>Belum ada pesan yg diblacklist</b></blockquote>.")
+        return await message.reply_text("<blockquote><b>Belum ada pesan yg diblacklist</b></blockquote>")
     msg = "<b>Daftar Blacklist:</b>\n\n"
     for i, w in enumerate(words, 1):
         msg += f"{i}. {w}\n"
@@ -489,7 +489,7 @@ async def antigcst_handler(client, message: Message):
         if uid in SUDOERS:
             return
 
-        warn_text = f"<blockquote><b>⚠️ WARN , {message.from_user.mention} Pesan anda telah dihapus karena ANDA JELEK</b></blockquote>."
+        warn_text = f"<blockquote><b>⚠️ WARN , {message.from_user.mention} Pesan anda telah dihapus karena ANDA JELEK</b></blockquote>"
 
         async def send_and_delete_warning():
             sent = await client.send_message(
