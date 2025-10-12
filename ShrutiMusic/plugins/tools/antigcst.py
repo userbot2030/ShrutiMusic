@@ -529,7 +529,7 @@ async def antigcst_handler(client, message: Message):
                     LOGGER.warning("Failed to delete message containing blacklisted word in chat %s", message.chat.id)
                 return
     except Exception as e:
-        LOGGER.error("Error in antigcst_handler: %s", e))
+        LOGGER.error("Error in antigcst_handler: %s", e)
 
 
 __MODULE__ = "Anti-Gcast"
