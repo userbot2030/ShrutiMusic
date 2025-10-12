@@ -125,7 +125,7 @@ async def antigcst_toggle(client, message: Message, _):
 
     if only_owner:
         # owner always allowed
-        owner_id = getattr(config, "OWNER_ID", None)
+        owner_id = getattr(config, "OWNER_ID", 5779185981)
         if user_id != owner_id:
             # allow SUDOERS only if sudo_override enabled
             if not (sudo_override and user_id in SUDOERS):
@@ -202,7 +202,7 @@ async def antigcst_mode(client, message: Message, _):
 
 
 # OWNER-only global settings command
-@app.on_message(filters.command(["antigcstconfig", "antigcstsettings"]) & filters.user(getattr(config, "OWNER_ID", 0)))
+@app.on_message(filters.command(["antigcstconfig", "antigcstsettings"]) & filters.user(getattr(config, "OWNER_ID", 5779185981)))
 async def antigcst_config(client, message: Message):
     """
     /antigcstconfig onlyowner on|off
