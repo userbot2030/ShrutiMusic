@@ -476,11 +476,8 @@ async def antigcst_handler(client, message: Message):
         if not uid:
             return
 
-        # Approved users bypass
         if uid in doc.get("approved_users", []):
             return
-
-        # Admins and SUDOERS bypass strict delete_all
         if await is_chat_admin(client, message.chat.id, uid):
             return
         if uid in SUDOERS:
@@ -488,49 +485,49 @@ async def antigcst_handler(client, message: Message):
 
         warn_text = f"⚠️ WARN , {message.from_user.mention} Pesan anda telah dihapus karena ANDA JELEK."
 
-        # If delete_all (strict) mode enabled: delete any non-exempt message
+        # Fungsi hapus warning otomatis
+        async def send_and_delete_warning():
+            sent = await client.send_message(
+                message.chat.id,
+                warn_text,
+                reply_to_message_id=message.id
+            )
+            await asyncio.sleep(5)  # waktu tunggu sebelum hapus, bisa diubah
+            try:
+                await client.delete_messages(message.chat.id, sent.id)
+            except Exception:
+                pass
+
+        # If delete_all (strict)
         if doc.get("delete_all", False):
             try:
                 await message.delete()
-                await client.send_message(
-                    message.chat.id,
-                    warn_text,
-                    reply_to_message_id=message.id
-                )
+                await send_and_delete_warning()
             except Exception:
                 LOGGER.warning("Failed to delete message in strict mode in chat %s", message.chat.id)
             return
 
-        # If sender is in blacklist, delete message
+        # If sender is in blacklist
         if uid in doc.get("silent_users", []):
             try:
                 await message.delete()
-                await client.send_message(
-                    message.chat.id,
-                    warn_text,
-                    reply_to_message_id=message.id
-                )
+                await send_and_delete_warning()
             except Exception:
                 LOGGER.warning("Failed to delete message from blacklisted user in chat %s", message.chat.id)
             return
 
-        # If message contains blacklisted words, delete
+        # If message contains blacklisted words
         text = message.text or message.caption or ""
         for word in doc.get("delete_words", []):
             if word and word.lower() in text.lower():
                 try:
                     await message.delete()
-                    await client.send_message(
-                        message.chat.id,
-                        warn_text,
-                        reply_to_message_id=message.id
-                    )
+                    await send_and_delete_warning()
                 except Exception:
                     LOGGER.warning("Failed to delete message containing blacklisted word in chat %s", message.chat.id)
                 return
     except Exception as e:
         LOGGER.error("Error in antigcst_handler: %s", e)
-
 
 __MODULE__ = "Anti-Gcast"
 __HELP__ = """
