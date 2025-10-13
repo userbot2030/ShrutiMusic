@@ -41,7 +41,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 OWNER_ID = int(os.getenv("OWNER_ID", 5779185981))
 OWNER_USERNAME = os.getenv("OWNER_USERNAME", "mhmdwldnnnn")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "Capricorn_MusicBot")
-CHANNEL_ID = -1002111666674  # Ganti dengan ID channel kamu
+CHANNEL_ID = int(os.getenv("CHANNEL_ID", "-1002111666674"))  # Ganti dengan ID channel kamu!
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 🛠️ Database & Deployment Configs
