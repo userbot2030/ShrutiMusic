@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from config import CHANNEL_ID
+from config import CHANNEL_ID  # Sudah otomatis ambil dari config.py
 
 # Helper function untuk cek apakah user sudah join channel
 async def is_joined(client: Client, user_id: int) -> bool:
