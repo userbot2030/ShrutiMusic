@@ -36,7 +36,7 @@ from ShrutiMusic.utils.inline import aq_markup, close_markup, stream_markup
 from ShrutiMusic.utils.pastebin import AviaxBin
 from ShrutiMusic.utils.stream.queue import put_queue, put_queue_index
 from ShrutiMusic.utils.thumbnails import gen_thumb
-from ShrutiMusic.utils.enhance_media import enhance_audio, enhance_video
+
 
 async def stream(
     _,
@@ -172,17 +172,6 @@ async def stream(
             )
         except:
             raise AssistantErr(_["play_14"])
-
-        # Enhancement audio/video sebelum streaming/kirim
-if status:  # Jika video
-    enhanced_video_path = f"enhanced_{file_path}"
-    enhance_video(file_path, enhanced_video_path)
-    file_path = enhanced_video_path
-else:       # Jika audio
-    enhanced_audio_path = f"enhanced_{file_path}"
-    enhance_audio(file_path, enhanced_audio_path)
-    file_path = enhanced_audio_path
-# END Enhancement
 
         if await is_active_chat(chat_id):
             await put_queue(
