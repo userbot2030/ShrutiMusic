@@ -24,8 +24,8 @@
 #   from your main script before creating/running the client if you want uvloop.
 
 import typing
+import logging as _stdlib_logging
 
-# Optional helper to install uvloop from your entrypoint:
 def enable_uvloop() -> None:
     """
     Call this from your main startup script (if you want uvloop).
@@ -51,13 +51,37 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 import config
 
-# Safe import of project LOGGER: try relative import, else fallback to stdlib logging
-try:
-    from ..logging import LOGGER  # keep existing project logging if present
-except Exception:
-    import logging
+# Safe import of project LOGGER: handle either:
+# - LOGGER being a factory function (callable that returns logger when called with name), or
+# - LOGGER being an actual logger instance (has .info method).
+# Fallback to stdlib logging if anything unexpected.
+def _resolve_project_logger():
+    try:
+        # Try to import the project's logging export
+        from ..logging import LOGGER as _project_LOGGER  # type: ignore
+    except Exception:
+        return _stdlib_logging.getLogger(__name__)
 
-    LOGGER = logging.getLogger(__name__)
+    # If it's callable and does NOT itself have .info, assume it's a factory: LOGGER(name) -> logger
+    if callable(_project_LOGGER) and not hasattr(_project_LOGGER, "info"):
+        try:
+            return _project_LOGGER(__name__)
+        except Exception:
+            return _stdlib_logging.getLogger(__name__)
+    # If it already looks like a logger instance (has .info), use it
+    if hasattr(_project_LOGGER, "info"):
+        try:
+            # If it's a factory mistakenly named LOGGER but expecting a name earlier in code,
+            # ensure we don't accidentally treat it wrong. If it's a bound logger, return as-is.
+            return _project_LOGGER if isinstance(_project_LOGGER, object) else _stdlib_logging.getLogger(__name__)
+        except Exception:
+            return _stdlib_logging.getLogger(__name__)
+
+    # Unknown shape: fallback
+    return _stdlib_logging.getLogger(__name__)
+
+# Module-level resolved logger object — use this in the class below.
+LOGGER = _resolve_project_logger()
 
 
 class Aviax(Client):
