@@ -1,14 +1,7 @@
-# Core deps
-pyrogram>=2.0.0
-py-tgcalls==0.9.7
-tgcrypto
-pyaes
-
-# Libraries (keep your existing ones)
 gTTS
 aiofiles
 aiohttp
-# asyncio is part of the stdlib, can be removed from requirements
+asyncio
 beautifulsoup4
 dnspython
 ffmpeg-python
@@ -22,6 +15,7 @@ opencv-python
 pytz
 pillow==9.5.0
 psutil
+py-tgcalls==0.9.7
 pykeyboard
 kurigram==2.1.35
 python-dotenv
@@ -29,13 +23,13 @@ pyyaml
 requests
 speedtest-cli
 spotipy
-telegraph
+tgcrypto
+telegraph 
 unidecode
 uvloop
 yt-dlp
 youtube-search
 youtube-search-python
-
 # ===========================================
 # ©️ 2025 Nand Yaduwanshi , aka @NoxxOP
 # 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
