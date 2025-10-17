@@ -29,7 +29,7 @@ from ShrutiMusic.misc import dbb, heroku
 from ShrutiMusic.misc import SUDOERS
  
 
-from .logging import LOGGER
+from ..logging import LOGGER
 
 dirr()
 git()
