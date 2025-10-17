@@ -1,63 +1,44 @@
-# ShrutiMusic/core/bot.py
-import logging as _stdlib_logging
+# Copyright (c) 2025 Nand Yaduwanshi <NoxxOP>
+# Location: Supaul, Bihar
+#
+# All rights reserved.
+#
+# This code is the intellectual property of Nand Yaduwanshi.
+# You are not allowed to copy, modify, redistribute, or use this
+# code for commercial or personal projects without explicit permission.
+#
+# Allowed:
+# - Forking for personal learning
+# - Submitting improvements via pull requests
+#
+# Not Allowed:
+# - Claiming this code as your own
+# - Re-uploading without credit or permission
+# - Selling or using commercially
+#
+# Contact for permissions:
+# Email: badboy809075@gmail.com
 
-def enable_uvloop() -> None:
-    try:
-        import uvloop
-        uvloop.install()
-    except Exception:
-        pass
+import uvloop
 
-# Import pyrogram and types
+uvloop.install()
+
 import pyrogram
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus, ParseMode
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+)
 
 import config
 
-# Resolve the project's LOGGER export in a robust way.
-# It handles:
-# - LOGGER being a logger instance (has .info)
-# - LOGGER being a factory function (callable) that returns a logger when called with a name
-# - fall back to stdlib logging.getLogger(__name__)
-def _resolve_project_logger():
-    try:
-        from ..logging import LOGGER as _project_LOGGER  # type: ignore
-    except Exception:
-        return _stdlib_logging.getLogger(__name__)
-
-    # If it already looks like a logger instance, use it
-    if hasattr(_project_LOGGER, "info"):
-        return _project_LOGGER
-
-    # If it's callable, try calling it to obtain a logger
-    if callable(_project_LOGGER):
-        try:
-            candidate = _project_LOGGER(__name__)
-            if hasattr(candidate, "info"):
-                return candidate
-        except Exception:
-            # If calling fails, fall back below
-            pass
-
-    # Unknown shape or everything failed -> fallback to stdlib
-    return _stdlib_logging.getLogger(__name__)
+from ..logging import LOGGER
 
 
-LOGGER = _resolve_project_logger()
-
-# Optional: small diagnostic print (will appear in logs once imported)
-try:
-    LOGGER.debug("Resolved LOGGER: %s (has info=%s)", type(LOGGER), hasattr(LOGGER, "info"))
-except Exception:
-    # If logging isn't configured yet, ignore
-    pass
-
-
-class Aviax(Client):
+class Nand(Client):
     def __init__(self):
-        LOGGER.info("sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...")
+        LOGGER(__name__).info(f"sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...")
         super().__init__(
             name="ShrutiMusic",
             api_id=config.API_ID,
@@ -70,44 +51,78 @@ class Aviax(Client):
 
     async def start(self):
         await super().start()
-        me = await self.get_me()
-        self.username = me.username
-        self.id = me.id
-        self.name = f"{me.first_name} {me.last_name or ''}".strip()
-        self.mention = me.mention
+        get_me = await self.get_me()
+        self.username = get_me.username
+        self.id = get_me.id
+        self.name = self.me.first_name + " " + (self.me.last_name or "")
+        self.mention = self.me.mention
 
+        # Create the button
         button = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="๏ ᴀᴅᴅ ᴍᴇ ɪɴ ɢʀᴏᴜᴘ ๏", url=f"https://t.me/{self.username}?startgroup=true")]]
+            [
+                [
+                    InlineKeyboardButton(
+                        text="๏ ᴀᴅᴅ ᴍᴇ ɪɴ ɢʀᴏᴜᴘ ๏",
+                        url=f"https://t.me/{self.username}?startgroup=true",
+                    )
+                ]
+            ]
         )
 
+        # Try to send a message to the logger group
         if config.LOG_GROUP_ID:
             try:
                 await self.send_photo(
                     config.LOG_GROUP_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════\n║\n║┣⪼ {self.name}\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║┣⪼🎄@{self.username}\n╚════════",
+                    caption=f"╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚════════════════❍⊱❁",
                     reply_markup=button,
                 )
             except pyrogram.errors.ChatWriteForbidden as e:
-                LOGGER.error("Bot cannot write to the log group: %s", e)
+                LOGGER(__name__).error(f"Bot cannot write to the log group: {e}")
                 try:
-                    await self.send_message(config.LOG_GROUP_ID, f"Bot started: {self.name}", reply_markup=button)
-                except Exception as e2:
-                    LOGGER.error("Failed to send message in log group: %s", e2)
+                    await self.send_message(
+                        config.LOG_GROUP_ID,
+                        f"╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚══════════════❍⊱❁",
+                        reply_markup=button,
+                    )
+                except Exception as e:
+                    LOGGER(__name__).error(f"Failed to send message in log group: {e}")
             except Exception as e:
-                LOGGER.error("Unexpected error while sending to log group: %s", e)
+                LOGGER(__name__).error(
+                    f"Unexpected error while sending to log group: {e}"
+                )
         else:
-            LOGGER.warning("LOG_GROUP_ID is not set, skipping log group notifications.")
+            LOGGER(__name__).warning(
+                "LOG_GROUP_ID is not set, skipping log group notifications."
+            )
 
+        # Check if bot is an admin in the logger group
         if config.LOG_GROUP_ID:
             try:
-                chat_member_info = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
+                chat_member_info = await self.get_chat_member(
+                    config.LOG_GROUP_ID, self.id
+                )
                 if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
-                    LOGGER.error("Please promote Bot as Admin in Logger Group")
+                    LOGGER(__name__).error(
+                        "Please promote Bot as Admin in Logger Group"
+                    )
             except Exception as e:
-                LOGGER.error("Error occurred while checking bot status: %s", e)
+                LOGGER(__name__).error(f"Error occurred while checking bot status: {e}")
 
-        LOGGER.info("Music Bot Started as %s", self.name)
+        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
 
     async def stop(self):
         await super().stop()
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
+
+# ===========================================
+# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
+# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
+# 📢 Telegram Channel : https://t.me/ShrutiBots
+# ===========================================
+
+
+# ❤️ Love From ShrutiBots 
