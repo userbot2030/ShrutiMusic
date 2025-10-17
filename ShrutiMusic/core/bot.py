@@ -62,7 +62,7 @@ class Nand(Client):
             [
                 [
                     InlineKeyboardButton(
-                        text=f"๏ ᴀᴅᴅ ᴍᴇ ɪɴ ɢʀᴏᴜᴘ ๏",
+                        text="๏ ᴀᴅᴅ ᴍᴇ ɪɴ ɢʀᴏᴜᴘ ๏",
                         url=f"https://t.me/{self.username}?startgroup=true",
                     )
                 ]
