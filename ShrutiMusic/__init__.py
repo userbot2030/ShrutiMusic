@@ -20,7 +20,7 @@
 # Email: badboy809075@gmail.com
 
 
-from ShrutiMusic.core.bot import Nand
+from ShrutiMusic.core.bot import Aviax
 from ShrutiMusic.core.dir import dirr
 from ShrutiMusic.core.git import git
 from ShrutiMusic.core.userbot import Userbot
@@ -34,7 +34,7 @@ git()
 dbb()
 heroku()
 
-app =  Nand()
+app =  Aviax()
 userbot = Userbot()
 
 
