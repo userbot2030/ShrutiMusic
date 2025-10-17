@@ -19,26 +19,50 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
-import uvloop
+# NOTE:
+# - Don't install uvloop at import time in libraries; call enable_uvloop()
+#   from your main script before creating/running the client if you want uvloop.
 
-uvloop.install()
+import typing
 
+# Optional helper to install uvloop from your entrypoint:
+def enable_uvloop() -> None:
+    """
+    Call this from your main startup script (if you want uvloop).
+    Example:
+        from ShrutiMusic.core.bot import enable_uvloop
+        enable_uvloop()
+        bot = Aviax()
+        bot.run()
+    """
+    try:
+        import uvloop
+
+        uvloop.install()
+    except Exception:
+        # If uvloop is not available, continue with the default loop.
+        pass
+
+# Import pyrogram (keep here). If import fails, fix dependencies first (pyrogram/tgcrypto/pyaes).
 import pyrogram
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus, ParseMode
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 import config
 
-from ..logging import LOGGER
+# Safe import of project LOGGER: try relative import, else fallback to stdlib logging
+try:
+    from ..logging import LOGGER  # keep existing project logging if present
+except Exception:
+    import logging
+
+    LOGGER = logging.getLogger(__name__)
 
 
 class Aviax(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...")
+        LOGGER.info("sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...")
         super().__init__(
             name="ShrutiMusic",
             api_id=config.API_ID,
@@ -51,11 +75,12 @@ class Aviax(Client):
 
     async def start(self):
         await super().start()
-        get_me = await self.get_me()
-        self.username = get_me.username
-        self.id = get_me.id
-        self.name = self.me.first_name + " " + (self.me.last_name or "")
-        self.mention = self.me.mention
+        # Use the result returned by get_me for consistent values
+        me = await self.get_me()
+        self.username = me.username
+        self.id = me.id
+        self.name = f"{me.first_name} {me.last_name or ''}".strip()
+        self.mention = me.mention
 
         # Create the button
         button = InlineKeyboardMarkup(
@@ -75,42 +100,62 @@ class Aviax(Client):
                 await self.send_photo(
                     config.LOG_GROUP_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚════════════════❍⊱❁",
+                    caption=(
+                        "╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪\n"
+                        "║\n"
+                        "║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n"
+                        "║\n"
+                        f"║┣⪼ {self.name}\n"
+                        "║\n"
+                        f"║┣⪼🎈ɪᴅ:- `{self.id}` \n"
+                        "║\n"
+                        f"║┣⪼🎄@{self.username} \n"
+                        "║ \n"
+                        "║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n"
+                        "║\n"
+                        "╚════════════════❍⊱❁"
+                    ),
                     reply_markup=button,
                 )
             except pyrogram.errors.ChatWriteForbidden as e:
-                LOGGER(__name__).error(f"Bot cannot write to the log group: {e}")
+                LOGGER.error(f"Bot cannot write to the log group: {e}")
                 try:
                     await self.send_message(
                         config.LOG_GROUP_ID,
-                        f"╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚══════════════❍⊱❁",
+                        (
+                            "╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n"
+                            "║\n"
+                            "║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n"
+                            "║\n"
+                            f"║◈ {self.name}\n"
+                            "║\n"
+                            f"║┣⪼🎈ɪᴅ:- `{self.id}` \n"
+                            "║\n"
+                            f"║┣⪼🎄@{self.username} \n"
+                            "║ \n"
+                            "║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n"
+                            "║\n"
+                            "╚══════════════❍⊱❁"
+                        ),
                         reply_markup=button,
                     )
-                except Exception as e:
-                    LOGGER(__name__).error(f"Failed to send message in log group: {e}")
+                except Exception as e2:
+                    LOGGER.error(f"Failed to send message in log group: {e2}")
             except Exception as e:
-                LOGGER(__name__).error(
-                    f"Unexpected error while sending to log group: {e}"
-                )
+                LOGGER.error(f"Unexpected error while sending to log group: {e}")
         else:
-            LOGGER(__name__).warning(
-                "LOG_GROUP_ID is not set, skipping log group notifications."
-            )
+            LOGGER.warning("LOG_GROUP_ID is not set, skipping log group notifications.")
 
         # Check if bot is an admin in the logger group
         if config.LOG_GROUP_ID:
             try:
-                chat_member_info = await self.get_chat_member(
-                    config.LOG_GROUP_ID, self.id
-                )
+                chat_member_info = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
                 if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
-                    LOGGER(__name__).error(
-                        "Please promote Bot as Admin in Logger Group"
-                    )
+                    LOGGER.error("Please promote Bot as Admin in Logger Group")
             except Exception as e:
-                LOGGER(__name__).error(f"Error occurred while checking bot status: {e}")
+                LOGGER.error(f"Error occurred while checking bot status: {e}")
 
-        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
+        LOGGER.info(f"Music Bot Started as {self.name}")
 
     async def stop(self):
         await super().stop()
@@ -123,6 +168,3 @@ class Aviax(Client):
 # 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
 # 📢 Telegram Channel : https://t.me/ShrutiBots
 # ===========================================
-
-
-# ❤️ Love From ShrutiBots 
