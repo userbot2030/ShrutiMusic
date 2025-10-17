@@ -36,7 +36,7 @@ import config
 from ..logging import LOGGER
 
 
-class Nand(Client):
+class Aviax(Client):
     def __init__(self):
         LOGGER(__name__).info(f"sᴛᴀʀᴛɪɴɢ ʙᴏᴛ...")
         super().__init__(
